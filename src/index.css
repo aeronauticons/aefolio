@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply transition-colors duration-200;
+}
+
+.trans-none * {
+  @apply transition-none;
+}
+
+.font-spartan {
+  font-family: "League Spartan", sans-serif;
+}
+
+.light {
+  /* general */
+  --ae_background_color: 229, 231, 235; /* bg-gray-200 */
+  --ae_logo_color: 96, 37, 214; /* purple dark */
+  --ae_ring_color: 17, 24, 40; /* bg-gray-900 */
+  --ae_modal_color: 229, 231, 235; /* bg-gray-200 */
+  --ae_hover_modal: 209, 213, 219; /* bg-gray-300 */
+
+  /* quotes */
+  --ae_quote_bg_color: 243, 244, 246; /* bg-gray-100 */
+  --ae_quote_ring: 229, 231, 235; /* bg-gray-200 */
+  --ae_quote_shadow: 209, 213, 219; /* bg-gray-300 */
+
+  /* keypoints */
+  --ae_keypoints_bg_color: 243, 244, 246; /* bg-gray-100 */
+}
+
+.dark {
+  /* general */
+  --ae_background_color: 17, 24, 40; /* bg-gray-900 */
+  --ae_logo_color: 140, 82, 255; /* pruple light */
+  --ae_ring_color: 241, 245, 249; /* bg-gray-100 */
+  --ae_modal_color: 3, 7, 18; /* bg-gray-950 */
+  --ae_hover_modal: 31, 41, 55; /* bg-gray-800 */
+
+  /* quotes */
+  --ae_quote_bg_color: 36, 46, 60; /* bg-gray-800/80 */
+  --ae_quote_ring: 31, 41, 55; /* bg-gray-800 */
+  --ae_quote_shadow: 31, 41, 55; /* bg-gray-800 */
+
+  /* keypoints */
+  --ae_keypoints_bg_color: 36, 46, 60; /* bg-gray-800/80 */
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6025d6;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 4px;
+}
+
+::-webkit-scrollbar-track:horizontal {
+  background: white;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #6025d6;
+  border-radius: 5px;
+}
