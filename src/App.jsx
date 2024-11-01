@@ -6,6 +6,7 @@ import { AboutPage } from "./components/AboutPage/AboutPage";
 import { DateTime } from "./components/FrontPage/DateTime";
 
 import { DarkModeButton } from "./components/ButtonComponents/DarkModeButton";
+import { Experience } from "./components/ExperiencePage/Experience";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(null);
@@ -41,6 +42,8 @@ function App() {
         <QuotePage isDarkMode={isDarkMode}/>
 
         <AboutPage />
+
+        <Experience/>
 
         <DarkModeButton toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
 

@@ -45,13 +45,9 @@ export const FrontPage = ({ isDarkMode }) => {
   };
 
   return (
-    <div className="relative isolate px-6 pt-14 lg:px-8 bg-ae_background_color">
-      <div
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        aria-hidden="true"
-      ></div>
+    <div className="bg-ae_background_color min-h-screen max-w-screen flex flex-col justify-center items-center">
       <div className="mx-auto max-w-screen-2xl md:py-32 pt-16 md:pb-10 lg:py-50 ">
-        <div className="md:flex md:justify-between md:gap-20 gap-5 grid justify-items-center mb-0 md:mb-16">
+        <div className="md:flex md:justify-between md:gap-10 gap-5 grid justify-items-center mb-0 md:mb-16 xl:px-5 md:px-14">
           <div className="order-1 md:order-last md:w-1/2 w-100">
             <ProfilePage />
           </div>
@@ -79,7 +75,7 @@ export const FrontPage = ({ isDarkMode }) => {
                   height: "auto",
                 }}
               >
-                <h2 className="text-balance text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl text-position mb-4 py-1 px-3">
+                <h2 className="text-balance sm:text-6xl text-5xl font-bold tracking-tight text-gray-900  text-position mb-4 py-1 px-3">
                   FULL STACK <br />
                   <span onClick={handleClick} style={{ cursor: "pointer" }}>
                     D

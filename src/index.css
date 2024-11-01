@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,36 +18,48 @@
 
 .light {
   /* general */
-  --ae_background_color: 229, 231, 235; /* bg-gray-200 */
+  --ae_background_color: 229, 231, 235; /* gray-200 */
   --ae_logo_color: 96, 37, 214; /* purple dark */
-  --ae_ring_color: 17, 24, 40; /* bg-gray-900 */
-  --ae_modal_color: 229, 231, 235; /* bg-gray-200 */
-  --ae_hover_modal: 209, 213, 219; /* bg-gray-300 */
+  --ae_ring_color: 17, 24, 40; /* gray-900 */
+  --ae_modal_color: 229, 231, 235; /* gray-200 */
+  --ae_hover_modal: 209, 213, 219; /* gray-300 */
 
   /* quotes */
-  --ae_quote_bg_color: 243, 244, 246; /* bg-gray-100 */
-  --ae_quote_ring: 229, 231, 235; /* bg-gray-200 */
-  --ae_quote_shadow: 209, 213, 219; /* bg-gray-300 */
+  --ae_quote_bg_color: 243, 244, 246; /* gray-100 */
+  --ae_quote_ring: 229, 231, 235; /* gray-200 */
+  --ae_quote_shadow: 209, 213, 219; /* gray-300 */
 
   /* keypoints */
-  --ae_keypoints_bg_color: 243, 244, 246; /* bg-gray-100 */
+  --ae_keypoints_bg_color: 243, 244, 246; /* gray-100 */
+
+  /* titles */
+  --ae_titles_text_color: 75, 85, 99; /* gray-600 */
+
+  /* logo color tech stack */
+  --ae_logo_tech_stack_color: 75, 85, 99; /* gray-600 */
 }
 
 .dark {
   /* general */
-  --ae_background_color: 17, 24, 40; /* bg-gray-900 */
+  --ae_background_color: 17, 24, 40; /* gray-900 */
   --ae_logo_color: 140, 82, 255; /* pruple light */
-  --ae_ring_color: 241, 245, 249; /* bg-gray-100 */
-  --ae_modal_color: 3, 7, 18; /* bg-gray-950 */
-  --ae_hover_modal: 31, 41, 55; /* bg-gray-800 */
+  --ae_ring_color: 241, 245, 249; /* gray-100 */
+  --ae_modal_color: 3, 7, 18; /* gray-950 */
+  --ae_hover_modal: 31, 41, 55; /* gray-800 */
 
   /* quotes */
-  --ae_quote_bg_color: 36, 46, 60; /* bg-gray-800/80 */
-  --ae_quote_ring: 31, 41, 55; /* bg-gray-800 */
-  --ae_quote_shadow: 31, 41, 55; /* bg-gray-800 */
+  --ae_quote_bg_color: 36, 46, 60; /* gray-800/80 */
+  --ae_quote_ring: 31, 41, 55; /* gray-800 */
+  --ae_quote_shadow: 31, 41, 55; /* gray-800 */
 
   /* keypoints */
-  --ae_keypoints_bg_color: 36, 46, 60; /* bg-gray-800/80 */
+  --ae_keypoints_bg_color: 36, 46, 60; /* gray-800/80 */
+
+  /* titles */
+  --ae_titles_text_color: 156, 163, 175; /* gray-300 */
+
+  /* logo color tech stack */
+  --ae_logo_tech_stack_color: 156, 163, 175; /* gray-400 */
 }
 
 ::-webkit-scrollbar {

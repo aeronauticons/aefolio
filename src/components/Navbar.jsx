@@ -6,14 +6,13 @@ import {
   Popover,
   PopoverPanel,
 } from "@headlessui/react";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import {
   FaXmark,
   FaGithub,
   FaLinkedin,
   FaMobileScreen,
-  FaFacebook,
 } from "react-icons/fa6";
 import { LuChevronDown } from "react-icons/lu";
 import { MdAlternateEmail } from "react-icons/md";
@@ -24,20 +23,53 @@ import { DateTime } from "./FrontPage/DateTime";
 export const Navbar = ({ isDarkMode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+
+  const handleScrollToSection = useCallback((sectionId) => {
+    const section = document.getElementById(sectionId);
+    
+    if (section) {
+      setMobileMenuOpen(false);
+      
+      setTimeout(() => {
+        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+        
+        const elementPosition = section.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }, 150);
+    }
+  }, []);
+
   const navigationText = (className) => {
     return (
       <>
-        <a href="#" className={className}>
+        <button onClick={() => handleScrollToSection("about_page")} className={className}>
           About
-        </a>
-        <a href="#" className={className}>
+        </button>
+        <button onClick={() => handleScrollToSection("experience_page")} className={className}>
           Experience
-        </a>
-        <a href="#" className={className}>
+        </button>
+        <button onClick={() => handleScrollToSection("project_page")} className={className}>
           Project
-        </a>
+        </button>
       </>
     );
+  };
+
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    
+    setTimeout(() => {
+      window.scrollTo({ 
+        top: 0, 
+        behavior: 'smooth' 
+      });
+    }, 150);
   };
 
   const myContacts = [
@@ -58,14 +90,6 @@ export const Navbar = ({ isDarkMode }) => {
       ),
     },
     {
-      name: "Facebook",
-      value: "facebook.com/aeronauticons",
-      href: "https://www.facebook.com/aeronauticons/",
-      icon: (
-        <FaFacebook className="h-6 w-6 text-gray-600 group-hover:text-ae_logo_color" />
-      ),
-    },
-    {
       name: "LinkedIn",
       value: "linkedin.com/in/aeronfiloteo",
       href: "https://www.linkedin.com/in/aeronfiloteo/",
@@ -83,16 +107,16 @@ export const Navbar = ({ isDarkMode }) => {
     },
   ];
 
-  // const
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 shadow-md backdrop-blur dark:border-slate-300/10 border-b">
+    <header className="fixed top-0 left-0 right-0 z-50 shadow-md backdrop-blur border-b border-slate-300/20 dark:border-slate-300/20">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-5 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-my-7 -mx-3 p-1.5">
+          <a 
+          className="-my-7 -mx-3 p-1.5 cursor-pointer"
+          onClick={handleLogoClick}>
             <span className="sr-only">Your Company</span>
             <img
               alt=""
@@ -160,7 +184,8 @@ export const Navbar = ({ isDarkMode }) => {
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
-            href="#"
+            href="https://drive.google.com/file/d/1_jJlc65KigjYqWdDjCa7XhtN3l4mNUyg/view?usp=sharing"
+            target="_blank"
             className="text-sm font-semibold leading-6 text-gray-500 hover:underline-offset-2 hover:underline"
           >
             My Resume
@@ -168,14 +193,17 @@ export const Navbar = ({ isDarkMode }) => {
         </div>
       </nav>
       <Dialog
+        as="div"
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 backdrop-blur" transition>
+        <DialogPanel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 backdrop-blur">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a 
+            className="-m-1.5 p-1.5 cursor-pointer"
+            onClick={handleLogoClick}>
               <span className="sr-only">Your Company</span>
               <img
                 alt=""
@@ -196,12 +224,13 @@ export const Navbar = ({ isDarkMode }) => {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-9">
                 {navigationText(
-                  "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:bg-gray-100"
+                  "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-500 hover:bg-gray-100 w-full text-left"
                 )}
               </div>
               <div className="py-6 flex justify-between self-center">
                 <a
-                  href="#"
+                  href="https://drive.google.com/file/d/1_jJlc65KigjYqWdDjCa7XhtN3l4mNUyg/view?usp=sharing"
+                  target="_blank"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-500 hover:bg-gray-100 w-9/12"
                 >
                   My Resume

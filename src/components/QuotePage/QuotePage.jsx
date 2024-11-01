@@ -16,10 +16,10 @@ export const QuotePage = ({ isDarkMode }) => {
         <div className="flex justify-between mx-auto max-w-screen-2xl">
           <div className="self-center">
             <Reveal>
-              <blockquote className="text-center text-2xl font-semibold leading-8 md:text-4xl sm:leading-9 text-gray-400">
+              <blockquote className="text-center text-2xl font-semibold leading-8 md:text-4xl xl:text-[40px] sm:leading-9 text-gray-400">
                 <p className="xl:pb-1">
                   <span className="font-extrabold text-gray-500 font-spartan">"CC"</span>{" "}
-                  everyday. Sip a{" "}
+                  everyday. Sip {" "}
                   <span className="font-extrabold text-gray-500 font-spartan">COFFEE</span>
                   {", "}
                   then{" "}
