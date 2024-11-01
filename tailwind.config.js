@@ -16,8 +16,10 @@ export default {
         ae_quote_ring: "rgba(var(--ae_quote_ring))",
         ae_quote_shadow: "rgba(var(--ae_quote_shadow))",
         ae_keypoints_bg_color: "rgba(var(--ae_keypoints_bg_color))",
+        ae_titles_text_color: "rgba(var(--ae_titles_text_color))",
+        ae_logo_tech_stack_color: "rgba(var(--ae_logo_tech_stack_color))",
 
-      }
+      },
     },
   },
   plugins: [],

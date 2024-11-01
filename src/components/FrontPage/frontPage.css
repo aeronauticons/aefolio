@@ -8,7 +8,7 @@
 
   font-size: 100px !important;
 
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 1280px) {
     font-size: 80px !important;
   }
 
