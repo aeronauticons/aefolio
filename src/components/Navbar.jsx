@@ -8,12 +8,7 @@ import {
 } from "@headlessui/react";
 import React, { useCallback, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import {
-  FaXmark,
-  FaGithub,
-  FaLinkedin,
-  FaMobileScreen,
-} from "react-icons/fa6";
+import { FaXmark, FaGithub, FaLinkedin, FaMobileScreen } from "react-icons/fa6";
 import { LuChevronDown } from "react-icons/lu";
 import { MdAlternateEmail } from "react-icons/md";
 import myLogoLight from "../assets/MyLogo/aefolio_logo_light.png";
@@ -22,23 +17,29 @@ import { DateTime } from "./FrontPage/DateTime";
 
 export const Navbar = ({ isDarkMode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isCLickedResume, setIsClickedResume] = useState(false);
 
+  const handleCLickResume = () => {
+    setIsClickedResume(true);
+  };
 
   const handleScrollToSection = useCallback((sectionId) => {
     const section = document.getElementById(sectionId);
-    
+
     if (section) {
       setMobileMenuOpen(false);
-      
+
       setTimeout(() => {
-        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-        
+        const headerHeight =
+          document.querySelector("header")?.offsetHeight || 0;
+
         const elementPosition = section.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerHeight;
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }, 150);
     }
@@ -47,13 +48,22 @@ export const Navbar = ({ isDarkMode }) => {
   const navigationText = (className) => {
     return (
       <>
-        <button onClick={() => handleScrollToSection("about_page")} className={className}>
+        <button
+          onClick={() => handleScrollToSection("about_page")}
+          className={className}
+        >
           About
         </button>
-        <button onClick={() => handleScrollToSection("experience_page")} className={className}>
+        <button
+          onClick={() => handleScrollToSection("experience_page")}
+          className={className}
+        >
           Experience
         </button>
-        <button onClick={() => handleScrollToSection("project_page")} className={className}>
+        <button
+          onClick={() => handleScrollToSection("project_page")}
+          className={className}
+        >
           Project
         </button>
       </>
@@ -63,11 +73,11 @@ export const Navbar = ({ isDarkMode }) => {
   const handleLogoClick = (e) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    
+
     setTimeout(() => {
-      window.scrollTo({ 
-        top: 0, 
-        behavior: 'smooth' 
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
       });
     }, 150);
   };
@@ -108,15 +118,16 @@ export const Navbar = ({ isDarkMode }) => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 shadow-md backdrop-blur border-b border-slate-300/20 dark:border-slate-300/20">
+    <header className="fixed top-0 left-0 right-0 z-10 shadow-md backdrop-blur border-b border-slate-300/20 dark:border-slate-300/20">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-5 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          <a 
-          className="-my-7 -mx-3 p-1.5 cursor-pointer"
-          onClick={handleLogoClick}>
+          <a
+            className="-my-7 -mx-3 p-1.5 cursor-pointer"
+            onClick={handleLogoClick}
+          >
             <span className="sr-only">Your Company</span>
             <img
               alt=""
@@ -152,7 +163,7 @@ export const Navbar = ({ isDarkMode }) => {
 
                 <PopoverPanel
                   transition
-                  className="absolute -right-2 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-ae_modal_color/90  shadow-2xl ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+                  className="absolute -right-2 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-ae_navbar_modal/90  shadow-2xl ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
                 >
                   <div className="p-4">
                     {myContacts.map((item) => (
@@ -186,9 +197,13 @@ export const Navbar = ({ isDarkMode }) => {
           <a
             href="https://drive.google.com/file/d/1_jJlc65KigjYqWdDjCa7XhtN3l4mNUyg/view?usp=sharing"
             target="_blank"
-            className="text-sm font-semibold leading-6 text-gray-500 hover:underline-offset-2 hover:underline"
+            className="text-sm font-semibold leading-6 text-gray-500 hover:underline-offset-2 hover:underline relative"
+            onClick={() => handleCLickResume()}
           >
             My Resume
+            {!isCLickedResume && (
+              <span className="absolute -top-1 right-0 rounded-full bg-ae_logo_color w-2 h-2 animate-ping"></span>
+            )}
           </a>
         </div>
       </nav>
@@ -199,16 +214,17 @@ export const Navbar = ({ isDarkMode }) => {
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 backdrop-blur">
+        <DialogPanel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto px-6 py-2 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 backdrop-blur">
           <div className="flex items-center justify-between">
-            <a 
-            className="-m-1.5 p-1.5 cursor-pointer"
-            onClick={handleLogoClick}>
+            <a
+              className="rounded-full cursor-pointer"
+              onClick={handleLogoClick}
+            >
               <span className="sr-only">Your Company</span>
               <img
                 alt=""
                 src={isDarkMode ? myLogoDark : myLogoLight}
-                className="h-8 w-auto"
+                className="h-auto w-16"
               />
             </a>
             <button
@@ -220,7 +236,7 @@ export const Navbar = ({ isDarkMode }) => {
               <FaXmark aria-hidden="true" className="h-6 w-6" />
             </button>
           </div>
-          <div className="mt-6 ">
+          <div className="mt-0 ">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-9">
                 {navigationText(

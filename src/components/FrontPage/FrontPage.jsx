@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import "../FrontPage/frontPage.css";
 import { Typewriter } from "../plugins/Typewriter";
 import { ProfilePage } from "../ProfilePage/ProfilePage";
@@ -9,6 +9,26 @@ import { motion } from "framer-motion";
 
 export const FrontPage = ({ isDarkMode }) => {
   const [typeWriterClick, setTypeWriterClick] = useState(true);
+
+  const handleScrollToSection = useCallback((sectionId) => {
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      setTimeout(() => {
+        const headerHeight =
+          document.querySelector("header")?.offsetHeight || 0;
+
+        const elementPosition = section.getBoundingClientRect().top;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }, 150);
+    }
+  }, []);
 
   const handleClick = () => {
     setTypeWriterClick((prevClick) => !prevClick);
@@ -30,9 +50,9 @@ export const FrontPage = ({ isDarkMode }) => {
 
         <Reveal>
           <div className="mb-8 flex justify-start">
-            <div className="relative rounded-full px-4 py-3 mt-4 md:text-sm text-xs text-gray-500 ring-1 ring-ae_ring_color/10 hover:ring-ae_ring_color/20">
+            <div className="cursor-pointer relative rounded-full px-4 py-3 mt-4 md:text-sm text-xs text-gray-500 ring-1 ring-ae_ring_color/10 hover:ring-ae_ring_color/20">
               Do you want me on your team?
-              <a href="#" className="font-semibold text-ae_logo_color ml-3">
+              <a className="font-medium text-ae_logo_color ml-3" onClick={() => handleScrollToSection("get_in_touch")}>
                 <span className="absolute inset-0" aria-hidden="true"></span>
                 <br className="block sm:hidden" />
                 Get in touch <span aria-hidden="true">&rarr;</span>
