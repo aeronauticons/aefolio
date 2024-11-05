@@ -8,9 +8,9 @@ import Reveal from "../plugins/Reveal";
 export const QuotePage = ({ isDarkMode }) => {
 
   return (
-    <section className="relative isolate overflow-hidden px-6 py-2 md:px-24 sm:py-10 xl:px-96 lg:px-56 z-10">
-      <div className="absolute inset-0 -z-10 bg-ae_background_color" />
-      <div className="absolute inset-y-0 right-1/4 md:right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-ae_quote_bg_color/25 shadow-xl shadow-ae_quote_shadow ring-1 ring-ae_quote_ring sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+    <section className="relative isolate overflow-hidden px-6 py-2 md:px-24 sm:py-10 xl:px-96 lg:px-56 ">
+      <div className="absolute inset-0  bg-ae_background_color" />
+      <div className="absolute inset-y-0 right-1/4 md:right-1/2  mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-ae_quote_bg_color/25 shadow-xl shadow-ae_quote_shadow ring-1 ring-ae_quote_ring sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
 
       <figure className="py-10 lg:py-0">
         <div className="flex justify-between mx-auto max-w-screen-2xl">

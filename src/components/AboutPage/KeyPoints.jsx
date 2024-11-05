@@ -58,7 +58,7 @@ const KeyPoints = () => {
           className="group relative cursor-pointer overflow-hidden bg-ae_keypoints_bg_color px-10 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 lg:hover:-translate-y-1 hover:scale-110 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg "
         >
           <span className=" absolute top-10 z-0 h-16 w-16 md:h-20 md:w-20 rounded-full bg-gray-500 transition-all duration-300 lg:group-hover:scale-[10]"></span>
-          <div className="relative z-10 mx-auto max-w-md md:text-left">
+          <div className="relative mx-auto max-w-md md:text-left">
             <Reveal>
               <span className=" grid h-16 w-16 md:h-20 md:w-20 place-items-center rounded-full bg-gray-500 transition-all duration-300 lg:group-hover:bg-gray-50">
                 {item.icon}

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, memo, useState } from "react";
 import Lottie from "lottie-web";
+import Reveal from "./Reveal";
 
 export const AutoPlay = memo(({ src, className }) => {
   const container = useRef(null);
@@ -35,7 +36,7 @@ export const AutoPlay = memo(({ src, className }) => {
     if (inView && !animation) {
       const anim = Lottie.loadAnimation({
         container: container.current,
-        renderer: 'svg',
+        renderer: "svg",
         loop: true,
         autoplay: true,
         animationData: src,
@@ -51,5 +52,9 @@ export const AutoPlay = memo(({ src, className }) => {
     };
   }, [inView, animation, src]);
 
-  return <div ref={container} className={className}></div>;
+  return (
+    <Reveal>
+      <div ref={container} className={className}></div>
+    </Reveal>
+  );
 });

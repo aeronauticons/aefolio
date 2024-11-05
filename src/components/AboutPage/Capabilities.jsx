@@ -11,69 +11,67 @@ export const Capabilities = () => {
     {
       name: "Laravel",
       icon: (
-        <FaLaravel className="h-8 w-8 lg:h-9 lg:w-9 xl:h-9 xl:w-9 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color" />
+        <FaLaravel className="h-8 w-8 lg:h-9 lg:w-9 xl:h-9 xl:w-9 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
       ),
     },
     {
       name: "React",
       icon: (
-        <FaReact className="h-8 w-8 lg:h-9 lg:w-9 xl:h-9 xl:w-9 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color" />
+        <FaReact className="h-8 w-8 lg:h-9 lg:w-9 xl:h-9 xl:w-9 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
       ),
     },
     {
       name: "Vite",
       icon: (
-        <TbBrandVite className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color" />
-      ),
-    },
-    {
-      name: "Git",
-      icon: (
-        <FaGitAlt className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color" />
+        <TbBrandVite className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
       ),
     },
     {
       name: "JavaScript",
       icon: (
-        <SiJavascript className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color" />
+        <SiJavascript className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
+      ),
+    },
+    {
+      name: "Git",
+      icon: (
+        <FaGitAlt className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
       ),
     },
     {
       name: "Tailwind",
       icon: (
-        <BiLogoTailwindCss className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color" />
+        <BiLogoTailwindCss className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
       ),
     },
     {
       name: "Bootstrap",
       icon: (
-        <FaBootstrap className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color" />
+        <FaBootstrap className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
       ),
     },
     {
       name: "MySQL",
       icon: (
-        <SiMysql className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color" />
+        <SiMysql className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
       ),
     },
     {
       name: "Firebase",
       icon: (
-        <BiLogoFirebase className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color" />
+        <BiLogoFirebase className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
       ),
     },
     {
       name: "Cordova",
       icon: (
-        <SiApachecordova className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color" />
+        <SiApachecordova className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
       ),
     },
   ];
 
   return (
-    <section
-      className="min-h-screen max-w-screen flex flex-col justify-center items-center relative isolate overflow-hidden"
-    >
+    <section className="min-h-screen max-w-screen flex flex-col justify-center items-center relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-ae_background_color" />
       <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-ae_quote_bg_color/25 shadow-xl shadow-ae_quote_shadow ring-1 ring-ae_quote_ring sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
 
@@ -103,34 +101,39 @@ export const Capabilities = () => {
           </div>
 
           <div className="md:w-80 lg:w-[40%] xl:py-6 pt-6 md:pt-0 px-10 sm:px-20 md:px-0 leading-relaxed">
-            <div className="bg-ae_background_color/60 text-ae_logo_color/70 p-2 shadow-lg w-24 h-9 text-center text-sm font-semibold rounded mb-3">
-              Best of me
-            </div>
+            <Reveal>
+              <div className="bg-ae_background_color/60 text-ae_logo_color/70 p-2 shadow-lg w-24 h-9 text-center text-sm font-semibold rounded mb-3">
+                Best of me
+              </div>
+            </Reveal>
 
-            <div className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-gray-500 mb-4">
-              <span className="text-ae_logo_color font-bold">Tech Stack</span>{" "}
-              I'm Capable of Using
-            </div>
+            <Reveal>
+              <div className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-gray-500 mb-4">
+                <span className="text-ae_logo_color font-bold">Tech Stack</span>{" "}
+                I'm Capable of Using
+              </div>
+            </Reveal>
 
-            <div className=" text-gray-500 text-lg font-normal leading-8 mb-4">
-              I have a strong knowledge of popular programming languages, tech
-              stacks, and development tools essential to modern software
-              development. Below, are the technologies I rely on to deliver
-              quality systems.
-            </div>
+            <Reveal>
+              <div className=" text-gray-500 text-lg font-normal leading-8 mb-4">
+                I have a strong knowledge of popular programming languages, tech
+                stacks, and development tools essential to modern software
+                development. Below, are the technologies I rely on to deliver
+                quality systems.
+              </div>
+            </Reveal>
 
             <div className="flex gap-4 sm:gap-8 lg:gap-12 flex-wrap w-full justify-center my-10">
               {myTechStack.map((item) => (
-                <div
-                  key={item.name}
-                  className="group flex flex-col items-center"
-                >
-                  <div>{item.icon}</div>
+                <Reveal key={item.name}>
+                  <div className="group flex flex-col items-center">
+                    <div>{item.icon}</div>
 
-                  <div className="text-gray-500 font-mono cursor-default text-sm lg:text-base mt-1">
-                    {item.name}
+                    <div className="text-gray-500 font-mono cursor-default text-sm lg:text-base mt-1">
+                      {item.name}
+                    </div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
