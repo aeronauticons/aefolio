@@ -28,7 +28,7 @@ export const ProjectModalContent = ({ data }) => {
           <div className="px-1 relative group text-ae_logo_color">
             { 
               data.languages && data.languages.map((item, index) => (
-                <span key={item}>
+                <span key={index}>
                   {item.name}
                   {index < data.languages.length - 1 && " - "}
                 </span>

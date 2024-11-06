@@ -6,14 +6,15 @@ export const DefaultModal = ({ isOpen, isClose, content: ContentComponent, data,
 
 
   return (
-    <div className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50 backdrop-blur-sm">
+    <div className="fixed top-0 right-0 left-0 z-30 flex justify-center items-center w-full h-full bg-black bg-opacity-50 backdrop-blur-sm">
       <div
-        className="absolute top-6 right-6 lg:top-10 lg:right-10 cursor-pointer"
+        className="absolute top-6 right-6 lg:top-10 lg:right-10 cursor-pointer z-50"
         onClick={isClose}
+        style={{ mixBlendMode: 'difference' }}
       >
-        <LuX className="text-ae_titles_text_color text-xl lg:text-2xl xl:text-3xl" />
+        <LuX className="text-gray-300 text-xl lg:text-2xl xl:text-3xl" />
       </div>
-      <div className="bg-ae_contact_label rounded-xl pb-5 md:max-w-xl xl:max-w-3xl w-96 md:w-full mt-28 sm:mt-16 md:mt-10 animate-bounceOnce drop-shadow-md">
+      <div className="bg-ae_contact_label rounded-xl md:max-w-xl xl:max-w-3xl w-96 md:w-full mt-9 sm:mt-16 md:mt-10 animate-bounceOnce drop-shadow-md">
         <div className="max-h-[90vh] overflow-y-auto">
 
           {ContentComponent && React.createElement(ContentComponent, { data })}

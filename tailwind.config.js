@@ -19,7 +19,6 @@ export default {
         ae_titles_text_color: "rgba(var(--ae_titles_text_color))",
         ae_logo_tech_stack_color: "rgba(var(--ae_logo_tech_stack_color))",
         ae_contact_label: "rgba(var(--ae_contact_label))",
-
       },
       animation: {
         bounceOnce: 'bounceOnce 0.4s ease forwards',
