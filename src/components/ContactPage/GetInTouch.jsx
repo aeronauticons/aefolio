@@ -13,7 +13,6 @@ import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
 
 export const GetInTouch = ({ isDarkMode }) => {
-
   const formRef = useRef();
 
   const form = useForm({
@@ -35,7 +34,6 @@ export const GetInTouch = ({ isDarkMode }) => {
   const isFormComplete = Object.values(values).every((value) => value);
 
   const onSubmit = (data) => {
-
     emailjs
       .sendForm(service_id, template_id, formRef.current, {
         publicKey: public_key,
@@ -61,9 +59,20 @@ export const GetInTouch = ({ isDarkMode }) => {
           reset();
         },
         (error) => {
-          Swal.fire({
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            },
+          });
+          Toast.fire({
             icon: "error",
-            title: "Error!",
+            title: `Error!`,
             text: `There was an error sending your message. Please try again later. Error Message: ${error.text}`,
           });
         }
