@@ -26,6 +26,10 @@ export const GetInTouch = ({ isDarkMode }) => {
     },
   });
 
+  const service_id = import.meta.env.VITE_YOUR_SERVICE_ID;
+  const template_id = import.meta.env.VITE_YOUR_TEMPLATE_ID;
+  const public_key = import.meta.env.VITE_YOUR_PUBLIC_KEY;
+
   const { control, handleSubmit, reset } = form;
   const values = useWatch({ control });
   const isFormComplete = Object.values(values).every((value) => value);
@@ -33,8 +37,8 @@ export const GetInTouch = ({ isDarkMode }) => {
   const onSubmit = (data) => {
 
     emailjs
-      .sendForm("service_le1xlq9", "template_pn5phpo", formRef.current, {
-        publicKey: "udQmbHQztVT_mUa_J",
+      .sendForm(service_id, template_id, formRef.current, {
+        publicKey: public_key,
       })
       .then(
         () => {
