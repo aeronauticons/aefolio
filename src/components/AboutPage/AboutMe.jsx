@@ -104,7 +104,7 @@ export const AboutMe = () => {
               <div className="flex w-100 items-center">
                 <Reveal>
                   <a
-                    href="#"
+                    href="/more_about_me"
                     className="text-ae_logo_color font-thin hover:underline hover:underline-offset-2"
                   >
                     More about me

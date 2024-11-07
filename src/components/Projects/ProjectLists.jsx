@@ -10,6 +10,7 @@ import Reveal from "../plugins/Reveal";
 import { ProjectModalContent } from "../Modal/ProjectModalContent";
 
 export const ProjectLists = ({ isDarkMode, openModal }) => {
+  
   const handleProjectClick = (projectData) => {
     openModal(projectData, ProjectModalContent);
   };

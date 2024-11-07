@@ -8,6 +8,7 @@ import Reveal from "../plugins/Reveal";
 import { motion } from "framer-motion";
 
 export const FrontPage = ({ isDarkMode }) => {
+
   const [typeWriterClick, setTypeWriterClick] = useState(true);
 
   const handleScrollToSection = useCallback((sectionId) => {
@@ -88,6 +89,7 @@ export const FrontPage = ({ isDarkMode }) => {
                 Your Aspiring
               </p>
               <div
+                className="trans-none"
                 style={{
                   backgroundImage: `url(${!isDarkMode ? lightBg : darkBg})`,
                   backgroundSize: "contain",
@@ -95,7 +97,7 @@ export const FrontPage = ({ isDarkMode }) => {
                   height: "auto",
                 }}
               >
-                <h2 className="text-balance sm:text-6xl text-5xl font-bold tracking-tight text-gray-900  text-position mb-4 py-1 px-3">
+                <h2 className="text-balance sm:text-6xl text-5xl font-bold tracking-tight text-gray-900 text-position mb-4 py-1 px-3 trans-none">
                   FULL STACK <br />
                   <span onClick={handleClick} style={{ cursor: "pointer" }}>
                     D

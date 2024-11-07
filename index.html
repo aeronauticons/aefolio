@@ -5,9 +5,61 @@
     <link rel="icon" type="image/svg+xml" href="/src/assets/MyLogo/aefolio_logo_light.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aeron Portfolio</title>
+    <style>
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+
+      #loadingContainer {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #logo {
+        width: 150px; 
+        height: 150px;
+      }
+
+      .no-scroll {
+        overflow: hidden;
+      }
+    </style>
   </head>
+
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Loading screen container -->
+      <div id="loadingContainer">
+        <img src="src/assets/MyLogo/aefolio_logo_dark.png" id="logo" alt="Loading...">
+      </div>
+    </div>
+
+    <script type="module">
+
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      if (mediaQuery.matches) {
+        document.documentElement.style.backgroundColor = "#0f172a";
+      } else {
+        document.documentElement.style.backgroundColor = "#e5e7eb";
+      }
+
+      document.body.classList.add("no-scroll");
+
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          document.getElementById("loadingContainer").style.display = "none";
+          
+          document.body.classList.remove("no-scroll");
+        }, 2000);
+      });
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

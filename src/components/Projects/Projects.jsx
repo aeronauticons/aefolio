@@ -3,6 +3,7 @@ import { TitleComponent } from '../TitleComponent/TitleComponent'
 import { ProjectLists } from './ProjectLists';
 
 export const Projects = ({ isDarkMode, openModal }) => {
+
     return (
         <div
           className="min-h-screen max-w-screen relative isolate px-6 pt-8 lg:px-8 bg-ae_background_color"

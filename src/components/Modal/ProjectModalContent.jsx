@@ -4,8 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";
 
 export const ProjectModalContent = ({ data }) => {
-  console.log(data)
-
+  
   const sanitizedHtml = DOMPurify.sanitize(data.long_desc);
 
   return (
