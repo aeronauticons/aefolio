@@ -19,6 +19,23 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        animation: bounce 1s ease infinite;
+      }
+
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px); 
+        }
+      }
+
+      #loadingContainer.hide {
+        opacity: 0;
+        pointer-events: none;
       }
 
       #logo {
@@ -51,14 +68,16 @@
 
       document.body.classList.add("no-scroll");
 
-      document.addEventListener("DOMContentLoaded", () => {
-        setTimeout(() => {
-          const loadingContainer = document.getElementById("loadingContainer");
-          if (loadingContainer) {
+      document.addEventListener("app-loaded", () => {
+        const loadingContainer = document.getElementById("loadingContainer");
+        if (loadingContainer) {
+          loadingContainer.classList.add("hide");
+          
+          setTimeout(() => {
             loadingContainer.style.display = "none";
-          }
-          document.body.classList.remove("no-scroll");
-        }, 2000);
+          }, 500);
+        }
+        document.body.classList.remove("no-scroll");
       });
     </script>
 
