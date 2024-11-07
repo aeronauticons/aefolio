@@ -51,10 +51,12 @@
 
       document.body.classList.add("no-scroll");
 
-      window.addEventListener("load", () => {
+      document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
-          document.getElementById("loadingContainer").style.display = "none";
-          
+          const loadingContainer = document.getElementById("loadingContainer");
+          if (loadingContainer) {
+            loadingContainer.style.display = "none";
+          }
           document.body.classList.remove("no-scroll");
         }, 2000);
       });
