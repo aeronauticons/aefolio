@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import myLogoLight from "../../assets/MyLogo/aefolio_logo_light.png";
 import myLogoDark from "../../assets/MyLogo/aefolio_logo_dark.png";
 import { ControlTextField } from "../InputComponents/ControlTextField";
@@ -11,8 +11,14 @@ import { emailSchema } from "../../core/validations/emailSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
+import { yearUpdate } from "../../constants";
+import messageSent from "../../assets/Animations/messageSent.json";
+import { LiaGrinWinkSolid } from "react-icons/lia";
 
 export const GetInTouch = ({ isDarkMode }) => {
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [emailSentGIF, setEmailSentGIF] = useState(false);
+
   const formRef = useRef();
 
   const form = useForm({
@@ -33,7 +39,19 @@ export const GetInTouch = ({ isDarkMode }) => {
   const values = useWatch({ control });
   const isFormComplete = Object.values(values).every((value) => value);
 
+  useEffect(
+    () => (isFormComplete ? setIsDisabled(false) : setIsDisabled(true)),
+    [isFormComplete]
+  );
+
   const onSubmit = (data) => {
+    setIsDisabled(true);
+    setEmailSentGIF(true);
+
+    setTimeout(() => {
+      setEmailSentGIF(false);
+    }, 3000);
+
     emailjs
       .sendForm(service_id, template_id, formRef.current, {
         publicKey: public_key,
@@ -75,6 +93,7 @@ export const GetInTouch = ({ isDarkMode }) => {
             title: `Error!`,
             text: `There was an error sending your message. Please try again later. Error Message: ${error.text}`,
           });
+
         }
       );
   };
@@ -86,6 +105,12 @@ export const GetInTouch = ({ isDarkMode }) => {
     >
       <div className="absolute inset-0  bg-ae_background_color" />
       <div className="absolute inset-y-0 right-1/4 md:right-1/2  mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-ae_quote_bg_color/25 shadow-xl shadow-ae_quote_shadow ring-1 ring-ae_quote_ring sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+
+      {emailSentGIF && (
+        <div className="flex justify-center items-center absolute inset-0 z-50">
+          <AutoPlay src={messageSent} className="2xl:w-80 w-72" />
+        </div>
+      )}
 
       <div className="flex justify-between 2xl:space-x-0 lg:space-x-10 xl:space-x-8 space-x-0 2xl:mx-auto 2xl:max-w-screen-2xl">
         <div className="flex-1 flex justify-center">
@@ -145,13 +170,16 @@ export const GetInTouch = ({ isDarkMode }) => {
                       type="submit"
                       className={`flex w-full justify-center px-3 py-2 tracking-wider font-semibold text-base bg-ae_logo_color rounded-lg text-white 
                         ${
-                          !isFormComplete
+                          isDisabled
                             ? "opacity-50 cursor-not-allowed"
                             : "hover:shadow-lg hover:opacity-80 cursor-pointer"
                         }`}
-                      disabled={!isFormComplete}
+                      disabled={isDisabled}
                       children="SUBMIT"
                     />
+                    <div className="flex justify-center items-center text-ae_titles_text_color mt-1 font-extralight text-xs lg:text-sm">
+                      Hit submit button to view effect. <LiaGrinWinkSolid className="ml-1" />
+                    </div>
                   </Reveal>
                 </form>
               </div>
@@ -159,7 +187,7 @@ export const GetInTouch = ({ isDarkMode }) => {
           </div>
         </div>
 
-        <div className="hidden lg:block content-center">
+        <div className="hidden lg:block content-center z-0">
           <AutoPlay
             src={sendEmail}
             className={"hidden md:block 2xl:w-80 lg:w-72"}
@@ -177,7 +205,7 @@ export const GetInTouch = ({ isDarkMode }) => {
         </div>
 
         <span className="text-gray-500">
-          Portfolio - Created By Aeron Filoteo @ 2024
+          Portfolio - Created By Aeron Filoteo @ {yearUpdate}
         </span>
       </footer>
     </section>

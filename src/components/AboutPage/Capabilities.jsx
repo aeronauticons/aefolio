@@ -1,74 +1,9 @@
 import React from "react";
 import laptop_office from "../../assets/General/laptop_office.jpg";
 import Reveal from "../plugins/Reveal";
-import { FaLaravel, FaReact, FaGitAlt, FaBootstrap } from "react-icons/fa";
-import { SiJavascript, SiApachecordova, SiMysql } from "react-icons/si";
-import { BiLogoTailwindCss, BiLogoFirebase } from "react-icons/bi";
-import { TbBrandVite } from "react-icons/tb";
+import { myTechStack, techStackDetails, yearExp } from "../../constants";
 
 export const Capabilities = () => {
-  const myTechStack = [
-    {
-      name: "Laravel",
-      icon: (
-        <FaLaravel className="h-8 w-8 lg:h-9 lg:w-9 xl:h-9 xl:w-9 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
-      ),
-    },
-    {
-      name: "React",
-      icon: (
-        <FaReact className="h-8 w-8 lg:h-9 lg:w-9 xl:h-9 xl:w-9 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
-      ),
-    },
-    {
-      name: "Vite",
-      icon: (
-        <TbBrandVite className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
-      ),
-    },
-    {
-      name: "JavaScript",
-      icon: (
-        <SiJavascript className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
-      ),
-    },
-    {
-      name: "Git",
-      icon: (
-        <FaGitAlt className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
-      ),
-    },
-    {
-      name: "Tailwind",
-      icon: (
-        <BiLogoTailwindCss className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
-      ),
-    },
-    {
-      name: "Bootstrap",
-      icon: (
-        <FaBootstrap className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
-      ),
-    },
-    {
-      name: "MySQL",
-      icon: (
-        <SiMysql className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
-      ),
-    },
-    {
-      name: "Firebase",
-      icon: (
-        <BiLogoFirebase className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
-      ),
-    },
-    {
-      name: "Cordova",
-      icon: (
-        <SiApachecordova className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
-      ),
-    },
-  ];
 
   return (
     <section className="min-h-screen max-w-screen flex flex-col justify-center items-center relative isolate overflow-hidden">
@@ -88,7 +23,7 @@ export const Capabilities = () => {
                 <div className="absolute bottom-4 left-4 bg-gray-100/80 p-4 shadow-lg text-gray-900 border-s-4 border-ae_logo_color">
                   <span className="flex items-center space-x-3">
                     <p className="text-4xl text-ae_logo_color font-extrabold flex items-center">
-                      2+
+                      {yearExp}+
                     </p>
                     <p className="text-lg font-semibold">Years</p>
                   </span>
@@ -116,25 +51,27 @@ export const Capabilities = () => {
 
             <Reveal>
               <div className=" text-gray-500 text-lg font-normal leading-8 mb-4">
-                I have a strong knowledge of popular programming languages, tech
-                stacks, and development tools essential to modern software
-                development. Below, are the technologies I rely on to deliver
-                quality systems.
+                {techStackDetails}
               </div>
             </Reveal>
 
             <div className="flex gap-4 sm:gap-8 lg:gap-12 flex-wrap w-full justify-center my-10">
-              {myTechStack.map((item) => (
-                <Reveal key={item.name}>
-                  <div className="group flex flex-col items-center">
-                    <div>{item.icon}</div>
+              {myTechStack.map((item) => {
 
-                    <div className="text-gray-500 font-mono cursor-default text-sm lg:text-base mt-1">
-                      {item.name}
+                const IconComponent = item.icon
+
+                return (
+                  <Reveal key={item.name}>
+                    <div className="group flex flex-col items-center">
+                      <div><IconComponent className="h-8 w-8 lg:h-9 lg:w-9 xl:h-10 xl:w-10 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none"/></div>
+  
+                      <div className="text-gray-500 font-mono cursor-default text-sm lg:text-base mt-1">
+                        {item.name}
+                      </div>
                     </div>
-                  </div>
-                </Reveal>
-              ))}
+                  </Reveal>
+                )
+              })}
             </div>
           </div>
         </div>
