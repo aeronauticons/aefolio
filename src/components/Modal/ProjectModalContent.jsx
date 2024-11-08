@@ -3,7 +3,7 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";
 
-export const ProjectModalContent = ({ data }) => {
+export const ProjectModalContent = ({ data, isDarkMode }) => {
   
   const sanitizedHtml = DOMPurify.sanitize(data.long_desc);
 
@@ -14,7 +14,7 @@ export const ProjectModalContent = ({ data }) => {
       <div className="mt-6 lg:mt-8 px-8">
         <div className="flex items-center space-x-4">
           <img
-            src={data.logo}
+            src={isDarkMode ? data.logo.dark : data.logo.light}
             alt=""
             className="w-10 md:w-16 pr-2 border-r-2 border-ae_titles_text_color"
           />

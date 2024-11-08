@@ -6,18 +6,26 @@ import {
   Popover,
   PopoverPanel,
 } from "@headlessui/react";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import { FaXmark, FaGithub, FaLinkedin, FaMobileScreen } from "react-icons/fa6";
+import { FaXmark } from "react-icons/fa6";
 import { LuChevronDown } from "react-icons/lu";
-import { MdAlternateEmail } from "react-icons/md";
 import myLogoLight from "../assets/MyLogo/aefolio_logo_light.png";
 import myLogoDark from "../assets/MyLogo/aefolio_logo_dark.png";
 import { DateTime } from "./FrontPage/DateTime";
+import { useLocation } from "react-router-dom";
+import { myContacts, myResumeLink } from "../constants";
+import { isFindingJob } from "../constants";
 
 export const Navbar = ({ isDarkMode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCLickedResume, setIsClickedResume] = useState(false);
+  const [isDefaultLocation, setIsDefaultLocation] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsDefaultLocation(location.pathname === "/");
+  }, [location.pathname]);
 
   const handleCLickResume = () => {
     setIsClickedResume(true);
@@ -82,43 +90,8 @@ export const Navbar = ({ isDarkMode }) => {
     }, 150);
   };
 
-  const myContacts = [
-    {
-      name: "Mobile Number",
-      value: "(+639)76 191 8238",
-      href: "tel:+639761918238",
-      icon: (
-        <FaMobileScreen className="h-6 w-6 text-gray-600 group-hover:text-ae_logo_color" />
-      ),
-    },
-    {
-      name: "Email",
-      value: "filoteoaeron27@gmail.com",
-      href: "mailto:filoteoaeron27@gmail.com",
-      icon: (
-        <MdAlternateEmail className="h-6 w-6 text-gray-600 group-hover:text-ae_logo_color" />
-      ),
-    },
-    {
-      name: "LinkedIn",
-      value: "linkedin.com/in/aeronfiloteo",
-      href: "https://www.linkedin.com/in/aeronfiloteo/",
-      icon: (
-        <FaLinkedin className="h-6 w-6 text-gray-600 group-hover:text-ae_logo_color" />
-      ),
-    },
-    {
-      name: "Github",
-      value: "github.com/aeronauticons",
-      href: "https://github.com/aeronauticons",
-      icon: (
-        <FaGithub className="h-6 w-6 text-gray-600 group-hover:text-ae_logo_color" />
-      ),
-    },
-  ];
-
-  return (
-    <header className="fixed top-0 left-0 right-0 z-10 shadow-md backdrop-blur border-b border-slate-300/20 dark:border-slate-300/20">
+  return !isDefaultLocation ? null : (
+    <header className="fixed top-0 left-0 right-0 z-10 shadow-md backdrop-blur border-b border-slate-300/20 dark:border-slate-300/20 ">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-5 lg:px-8"
@@ -162,31 +135,34 @@ export const Navbar = ({ isDarkMode }) => {
                 </PopoverButton>
 
                 <PopoverPanel
-                  transition
+                  transition={true.toString()}
                   className="absolute -right-2 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-ae_navbar_modal/90  shadow-2xl ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
                 >
                   <div className="p-4">
-                    {myContacts.map((item) => (
-                      <div
-                        key={item.name}
-                        className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-ae_hover_modal"
-                      >
-                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                          {item.icon}
+                    {myContacts.map((item) => {
+                      const IconComponent = item.icon;
+                      return (
+                        <div
+                          key={item.name}
+                          className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-ae_hover_modal"
+                        >
+                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                            <IconComponent className="h-6 w-6 text-gray-600 group-hover:text-ae_logo_color" />
+                          </div>
+                          <div className="flex-auto">
+                            <a
+                              href={item.href}
+                              className="block font-semibold text-gray-500"
+                              target="_blank"
+                            >
+                              {item.name}
+                              <span className="absolute inset-0" />
+                            </a>
+                            <p className="mt-1 text-gray-500">{item.value}</p>
+                          </div>
                         </div>
-                        <div className="flex-auto">
-                          <a
-                            href={item.href}
-                            className="block font-semibold text-gray-500"
-                            target="_blank"
-                          >
-                            {item.name}
-                            <span className="absolute inset-0" />
-                          </a>
-                          <p className="mt-1 text-gray-500">{item.value}</p>
-                        </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </PopoverPanel>
               </>
@@ -195,14 +171,14 @@ export const Navbar = ({ isDarkMode }) => {
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
-            href="https://drive.google.com/file/d/1_jJlc65KigjYqWdDjCa7XhtN3l4mNUyg/view?usp=sharing"
+            href={myResumeLink}
             target="_blank"
-            className="text-sm font-semibold leading-6 text-gray-500 hover:underline-offset-2 hover:underline relative"
+            className={`${!isFindingJob && 'line-through'} text-sm font-semibold leading-6 text-gray-500 hover:underline-offset-2 hover:underline relative`}
             onClick={() => handleCLickResume()}
           >
             My Resume
-            {!isCLickedResume && (
-              <span className="absolute -top-1 right-0 rounded-full bg-ae_logo_color w-2 h-2 animate-ping"></span>
+            {(!isCLickedResume) && (
+              <span className={`${!isFindingJob && "hidden"} absolute -top-1 right-0 rounded-full bg-ae_logo_color w-2 h-2 animate-ping`}></span>
             )}
           </a>
         </div>
@@ -245,9 +221,9 @@ export const Navbar = ({ isDarkMode }) => {
               </div>
               <div className="py-6 flex justify-between self-center">
                 <a
-                  href="https://drive.google.com/file/d/1_jJlc65KigjYqWdDjCa7XhtN3l4mNUyg/view?usp=sharing"
+                  href={myResumeLink}
                   target="_blank"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-500 hover:bg-gray-100 w-9/12"
+                  className={`${!isFindingJob && 'line-through'} -mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-500 hover:bg-gray-100 w-9/12`}
                 >
                   My Resume
                 </a>
@@ -259,16 +235,20 @@ export const Navbar = ({ isDarkMode }) => {
             </div>
 
             <div className="fixed flex space-x-4 pt-4 bottom-6 inset-x-0 justify-center">
-              {myContacts.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  className="bg-ae_hover_modal hover:bg-white flex h-11 w-11 flex-none items-center justify-center rounded-lg"
-                >
-                  {item.icon}
-                </a>
-              ))}
+              {myContacts.map((item) => {
+                const IconComponent = item.icon;
+
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    className="bg-ae_hover_modal hover:bg-white flex h-11 w-11 flex-none items-center justify-center rounded-lg"
+                  >
+                    <IconComponent className="h-6 w-6 text-gray-600 group-hover:text-ae_logo_color"/>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </DialogPanel>

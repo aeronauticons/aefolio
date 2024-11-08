@@ -2,35 +2,12 @@ import React from "react";
 import { TitleComponent } from "../TitleComponent/TitleComponent";
 import coder from "../../assets/Animations/coder.json";
 import { AutoPlay } from "../plugins/AutoPlay";
-import { FaFacebook, FaInstagram, FaLongArrowAltRight } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import Reveal from "../plugins/Reveal";
+import { mySocials } from "../../constants";
+import { aboutMe } from "../../constants";
 
 export const AboutMe = () => {
-  const mySocials = [
-    {
-      name: "Facebook",
-      href: "https://www.facebook.com/aeronauticons/",
-      icon: (
-        <FaFacebook className="h-6 w-6 text-gray-600 hover:text-ae_logo_color" />
-      ),
-    },
-    {
-      name: "Instagram",
-      href: "https://www.instagram.com/aeronauticons/",
-      icon: (
-        <FaInstagram className="h-6 w-6 text-gray-600 hover:text-ae_logo_color" />
-      ),
-    },
-    {
-      name: "XTwitter",
-      href: "https://x.com/aeronauticssss",
-      icon: (
-        <FaXTwitter className="h-6 w-6 text-gray-600 hover:text-ae_logo_color" />
-      ),
-    },
-  ];
-
   return (
     <div className="relative isolate px-6 pt-8 lg:px-8 bg-ae_background_color">
       <div className="flex justify-center md:hidden mb-3">
@@ -45,40 +22,15 @@ export const AboutMe = () => {
             <AutoPlay src={coder} className={"hidden md:block w-72"} />
           </div>
           <div className="text-left text-lg leading-8 font-normal text-gray-500 md:w-2/3">
-            <div className="mb-2 leading-relaxed">
-              <Reveal>
-                Hello! I’m Aeron, an aspiring full stack developer. By
-                profession, I am a mathematician, as that is my field of study.
-                I truly love coding; in fact, I enjoy solving problems,
-                organizing complex logic, and analyzing system structures.
-              </Reveal>
-            </div>
-
-            <div className="mb-2 leading-relaxed">
-              <Reveal>
-                Currently, I work as a software engineer here in the Bulacan,
-                Philippines, and I am expanding my skill set as I pursue full
-                stack development.
-              </Reveal>
-            </div>
-
-            <div>
-              <Reveal>
-                Outside of work, I am a painter. I love painting nature, which
-                helps me relieve stress and unwind.
-              </Reveal>
-            </div>
-
-            <div className="mb-4 leading-relaxed">
-              <Reveal>
-                I am actively looking for a new job where I can merge my coding
-                skills with my creativity. If you know of any openings that
-                might suit me, let's connect! 🔗
-              </Reveal>
-            </div>
+            {aboutMe &&
+              aboutMe.map((item) => (
+                <div className="mb-2 leading-relaxed" key={item.id}>
+                  <Reveal>{item.text}</Reveal>
+                </div>
+              ))}
 
             <div className="mb-2 flex justify-between">
-              <div className="flex w-100">
+              <div className="lg:flex w-100 space-y-2 lg:space-y-0">
                 <Reveal>
                   <span className="hidden md:flex  text-ae_logo_color font-semibold text-xl items-center mr-4">
                     Social Media <FaLongArrowAltRight className="ml-2" />
@@ -88,16 +40,20 @@ export const AboutMe = () => {
                 <Reveal>
                   <div className="flex space-x-1 inset-x-0 justify-center items-center">
                     {mySocials &&
-                      mySocials.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          target="_blank"
-                          className="flex h-10 w-10 items-center justify-center trans-none"
-                        >
-                          {item.icon}
-                        </a>
-                      ))}
+                      mySocials.map((item) => {
+                        const IconComponent = item.icon;
+
+                        return (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            target="_blank"
+                            className="flex h-10 w-10 trans-none"
+                          >
+                            <IconComponent className="h-6 w-6 text-gray-600 hover:text-ae_logo_color" />
+                          </a>
+                        );
+                      })}
                   </div>
                 </Reveal>
               </div>

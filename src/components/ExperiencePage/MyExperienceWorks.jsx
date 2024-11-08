@@ -1,32 +1,9 @@
 import React from "react";
-import NBLogo from "../../assets/Work/Nexbridge/nb_logo.png";
-import NBCover from "../../assets/Work/Nexbridge/nb_cover.jpg";
-import NBMiniLogo from "../../assets/Work/Nexbridge/nb_mini_logo.png";
 import { FaCheck } from "react-icons/fa";
 import Reveal from "../plugins/Reveal";
+import { myWorkExperiences } from "../../constants";
 
 export const MyExperienceWorks = () => {
-  const myWorkExperiences = [
-    {
-      id: 1,
-      name: "Nexbridge Technologies Inc.",
-      logo: NBLogo,
-      miniLogo: NBMiniLogo,
-      cover: NBCover,
-      date: "October 2022 - Present",
-      role: "Software Engineer",
-      link: "https://nexbridgetech.com/",
-      responsibilities: [
-        { id: 1, text: "Engineered end-to-end full-stack solutions and APIs." },
-        { id: 2, text: "Enhanced the frontend experience for a seamless UI." },
-        {
-          id: 3,
-          text: "Designed and optimized relational databases to ensure data integrity.",
-        },
-        { id: 4, text: "Refactored and streamlined code structures." },
-      ],
-    },
-  ];
 
   return (
     <div className="relative mx-auto max-w-screen-2xl bg-ae_background_color sm:py-8 px-12 sm:px-24 md:px-32 xl:px-44 lg:py-5 pt-7 pb-2 md:pt-10">

@@ -17,7 +17,7 @@ export const DefaultModal = ({ isOpen, isClose, content: ContentComponent, data,
       <div className="bg-ae_contact_label rounded-xl md:max-w-xl xl:max-w-3xl w-96 md:w-full mt-9 sm:mt-16 md:mt-10 animate-bounceOnce drop-shadow-md">
         <div className="max-h-[90vh] overflow-y-auto">
 
-          {ContentComponent && React.createElement(ContentComponent, { data })}
+          {ContentComponent && React.createElement(ContentComponent, { data, isDarkMode })}
 
         </div>
       </div>

@@ -6,6 +6,7 @@ import lightBg from "./../../assets/ProfileImg/light_bg.jpg";
 import darkBg from "./../../assets/ProfileImg/dark_bg.jpg";
 import Reveal from "../plugins/Reveal";
 import { motion } from "framer-motion";
+import { isFindingJob } from "../../constants";
 
 export const FrontPage = ({ isDarkMode }) => {
 
@@ -51,7 +52,7 @@ export const FrontPage = ({ isDarkMode }) => {
 
         <Reveal>
           <div className="mb-8 flex justify-start">
-            <div className="cursor-pointer relative rounded-full px-4 py-3 mt-4 md:text-sm text-xs text-gray-500 ring-1 ring-ae_ring_color/10 hover:ring-ae_ring_color/20">
+            <div className={`${!isFindingJob && 'line-through'} cursor-pointer relative rounded-full px-4 py-3 mt-4 md:text-sm text-xs text-gray-500 ring-1 ring-ae_ring_color/10 hover:ring-ae_ring_color/20`}>
               Do you want me on your team?
               <a className="font-medium text-ae_logo_color ml-3" onClick={() => handleScrollToSection("get_in_touch")}>
                 <span className="absolute inset-0" aria-hidden="true"></span>
@@ -116,7 +117,7 @@ export const FrontPage = ({ isDarkMode }) => {
           </div>
         </div>
 
-        <div className="md:px-20 px-6 grid justify-items-center lg:hidden text-center">
+        <div className="md:px-40 sm:px-20 px-6 grid justify-items-center lg:hidden text-center">
           {frontPageDetails()}
         </div>
       </div>
