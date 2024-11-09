@@ -18,6 +18,8 @@ import { FaMobileScreen, FaXTwitter } from "react-icons/fa6";
 import { MdAlternateEmail } from "react-icons/md";
 import { SiApachecordova, SiJavascript, SiMysql } from "react-icons/si";
 import { TbBrandVite } from "react-icons/tb";
+import myLogoDark from "../assets/MyLogo/aefolio_logo_dark.png"
+import myLogoLight from "../assets/MyLogo/aefolio_logo_light.png"
 import NBLogo from "../assets/Work/Nexbridge/nb_logo.png";
 import NBCover from "../assets/Work/Nexbridge/nb_cover.jpg";
 import NBMiniLogo from "../assets/Work/Nexbridge/nb_mini_logo.png";
@@ -25,10 +27,34 @@ import { RiCss3Fill } from "react-icons/ri";
 import QubeAppLogoLight from "../assets/Projects/QubeApp/QLogoLight.png";
 import QubeAppLogoDark from "../assets/Projects/QubeApp/QLogoDark.png";
 import QubeAppImage from "../assets/Projects/QubeApp/QubeAppIamge.png";
+import coffee_art1 from "../assets/MyArts/coffee_art1.jpg";
+import flower_tulips from "../assets/MyArts/flower_tulips.jpg";
+import lion from "../assets/MyArts/lion.jpg";
+import moon from "../assets/MyArts/moon.jpg";
+import nature1 from "../assets/MyArts/nature1.jpg";
+import nature2 from "../assets/MyArts/nature2.jpg";
+import nature3 from "../assets/MyArts/nature3.jpg";
+import phone_case_art from "../assets/MyArts/phone_case_art.jpg";
+import tree from "../assets/MyArts/tree.jpg";
+import tree1 from "../assets/MyArts/tree1.jpg";
+import tree2 from "../assets/MyArts/tree2.jpg";
 
 const isFindingJob = true;
 const myResumeLink =
   "https://drive.google.com/file/d/1_jJlc65KigjYqWdDjCa7XhtN3l4mNUyg/view?usp=sharing";
+
+const myLogo = {
+  dark: myLogoDark,
+  light: myLogoLight,
+}
+
+const myRole = {
+  firstWord: "FULL STACK",
+  firstLetterForSecondWord: "D",
+  secondWord: "EVELOPER",
+};
+
+const pathURL = ["/", "/more_about_me"];
 
 // nav
 const myContacts = [
@@ -246,9 +272,117 @@ const myProjects = [
 ];
 
 // get in touch
-const yearUpdate = '2024';
+const yearUpdate = "2024";
+
+// more about me
+const messageIntro = [
+  {
+    id: 1,
+    text: `Whenever I feel grateful, lonely, or bored, I express my feelings
+          through art or by playing online games. When coding feels
+          overwhelming, or I need a break, I usually play online games to relax
+          and reset.`,
+  },
+  {
+    id: 2,
+    text: `In my art, I often draw nature, as it brings me a sense of comfort and
+          peace. Here are some samples of my work.`,
+  },
+];
+
+const myArts = [
+  {
+    name: "Red Tulip",
+    image: flower_tulips,
+    orientation: "landscape",
+    date: "August 2024",
+    description: "A vibrant, close-up view of a tulip in full bloom, showcasing its elegant petals and rich colors in my hand.",
+    medium: 'Acrylic Paint',
+  },
+  {
+    name: "Sunset Case",
+    image: phone_case_art,
+    orientation: "portrait",
+    date: "November 2023",
+    description: "Vibrant sunset of the sun across the sea that was companioned on a phone case.",
+    medium: 'Acrylic Paint',
+  },
+  {
+    name: "Hope Behind the Forest",
+    image: nature3,
+    orientation: "landscape",
+    date: "Febuary 2022",
+    description: "A hope at the end of the messy forest. Never forget that every negative event has a positive outcome.",
+    medium: 'Acrylic Paint',
+  },
+  {
+    name: "Fire-ice Lion",
+    image: lion,
+    orientation: "landscape",
+    date: "December 2021",
+    description: "Fierce and calm hybird lion, it showcase how calm and beautiful a lion was.",
+    medium: 'Acrylic Paint',
+  },
+  {
+    name: "Nature Coffee Art",
+    image: coffee_art1,
+    orientation: "landscape",
+    date: "September 2021",
+    description: "A beautiful nature inside a jail. We can find more beauty outside the surroundings than we used to. Strive outside of your box.",
+    medium: 'Coffee',
+  },
+  {
+    name: "Peaceful Evening",
+    image: moon,
+    orientation: "portrait",
+    date: "May 2021",
+    description: "Wonders of the moon that shines in the darkness days of our lives.",
+    medium: 'Acrylic Paint',
+  },
+  {
+    name: "Beyond the Shore",
+    image: nature2,
+    orientation: "landscape",
+    date: "December 2020",
+    description: "Sometimes we are all curious how rocks are formed, how they are shaped, and what things we could see inside the huge rocks and terrains.",
+    medium: 'Acrylic Paint',
+  },
+  {
+    name: "Twin Mountain",
+    image: nature1,
+    orientation: "landscape",
+    date: "October 2020",
+    description: "There always a myth where the sun is always rising in the middle of the two mountains. But in my art, it wont, haha.",
+    medium: 'Acrylic Paint',
+  },
+  {
+    name: "Winter Tree",
+    image: tree1,
+    orientation: "portrait",
+    date: "May 2020",
+    description: "A tree standing bare in the cold of winter; its leaves are full of snow that is so beautiful to see. I am looking forward to seeing one of these in South Korea someday.",
+    medium: 'Acrylic Paint',
+  },
+  {
+    name: "Summer Tree",
+    image: tree2,
+    orientation: "portrait",
+    date: "May 2020",
+    description: "A lush, full tree basking under the hot summer sun, its vibrant yellowish leaves providing shade and a sense of calm during the warmest season of the year.",
+    medium: 'Acrylic Paint',
+  },
+  {
+    name: "Tree",
+    image: tree,
+    orientation: "portrait",
+    date: "April 2020",
+    description: "A common tree with a well-balanced structure, showcasing the simplicity and beauty of nature's life cycle throughout the seasons.",
+    medium: 'Acrylic Paint',
+  },
+];
 
 export {
+  pathURL,
   myContacts,
   myResumeLink,
   isFindingJob,
@@ -260,5 +394,9 @@ export {
   techStackDetails,
   myWorkExperiences,
   myProjects,
-  yearUpdate
+  yearUpdate,
+  myRole,
+  myArts,
+  messageIntro,
+  myLogo
 };

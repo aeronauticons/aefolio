@@ -38,11 +38,7 @@ export const ProjectModalContent = ({ data, isDarkMode }) => {
 
         <div className="text-gray-500 px-2 leading-8" dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
 
-        <div className="py-4 px-2 mt-3">
-          <div className="mb-2 text-lg md:text-xl xl:text-2xl font-extrabold font-spartan text-ae_titles_text_color drop-shadow-xl  ">
-            Project
-            <span className="text-ae_logo_color">.</span>
-          </div>
+        <div className="pb-4 px-2 mt-3">
           <div className="flex space-x-6 items-center justify-start">
             <a className="flex space-x-2 items-center group cursor-pointer" target="_blank" href={data.projectLink}>
               <TbExternalLink className="h-5 w-5 lg:h-6 lg:w-6 text-ae_logo_color trans-none" />

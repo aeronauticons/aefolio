@@ -13,14 +13,12 @@
         height: 100%;
       }
 
-      html {
-        background-color: #e5e7eb;
+      .reload-dark {
+        background-color: #0f172a;
       }
 
-      @media (prefers-color-scheme: dark) {
-        html {
-          background-color: #0f172a;
-        }
+      .reload-light {
+        background-color: #e5e7eb;
       }
 
 
@@ -68,6 +66,17 @@
     </div>
 
     <script type="module">
+
+        const isDark = localStorage.getItem('isDarkMode');
+
+        if (isDark === 'true') {
+          document.documentElement.classList.add('reload-dark');
+          document.documentElement.classList.remove('reload-light');
+        } else {
+          document.documentElement.classList.remove('reload-dark');
+          document.documentElement.classList.add('reload-light');
+        }
+
       document.body.classList.add("no-scroll");
 
       document.addEventListener("app-loaded", () => {

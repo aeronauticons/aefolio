@@ -1,8 +1,7 @@
 import React from "react";
 import coffee_in_hand from "./../../assets/QuoteImg/coffee_in_hand.png";
-import lightBg from "./../../assets/MyLogo/aefolio_logo_light.png";
-import darkBg from "./../../assets/MyLogo/aefolio_logo_dark.png";
 import Reveal from "../plugins/Reveal";
+import { myLogo } from "../../constants";
 
 
 export const QuotePage = ({ isDarkMode }) => {
@@ -32,7 +31,7 @@ export const QuotePage = ({ isDarkMode }) => {
                 <Reveal>
                   <div className="lg:w-20 lg:h-14 md:w-16 md:h-10 w-14 h-8 mx-auto overflow-hidden">
                     <img
-                      src={isDarkMode ? darkBg : lightBg}
+                      src={isDarkMode ? myLogo.dark : myLogo.light}
                       alt="My Logo"
                       className="object-cover w-full h-full"
                     />
