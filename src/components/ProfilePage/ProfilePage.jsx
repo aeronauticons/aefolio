@@ -1,5 +1,6 @@
 import React from "react";
 import heroImg from "./../../assets/ProfileImg/aeron-psd.png";
+// import heroImg from "./../../assets/ProfileImg/formalMe.png";
 import bgHeroImg from "./../../assets/ProfileImg/bg.png";
 import Reveal from "../plugins/Reveal";
 

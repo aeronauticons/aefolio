@@ -10,21 +10,21 @@ import React, { useCallback, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { LuChevronDown } from "react-icons/lu";
-import myLogoLight from "../assets/MyLogo/aefolio_logo_light.png";
-import myLogoDark from "../assets/MyLogo/aefolio_logo_dark.png";
 import { DateTime } from "./FrontPage/DateTime";
 import { useLocation } from "react-router-dom";
-import { myContacts, myResumeLink } from "../constants";
-import { isFindingJob } from "../constants";
+import { myContacts, myResumeLink, myLogo, isFindingJob, pathURL } from "../constants";
 
 export const Navbar = ({ isDarkMode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCLickedResume, setIsClickedResume] = useState(false);
-  const [isDefaultLocation, setIsDefaultLocation] = useState(true);
+  const [validLocation, setValidLocation] = useState(true);
+  const [defaultLocation, setDefaultLocation] = useState(true);
+
   const location = useLocation();
 
   useEffect(() => {
-    setIsDefaultLocation(location.pathname === "/");
+    setValidLocation(pathURL.includes(location.pathname));
+    setDefaultLocation(location.pathname == pathURL[0]);
   }, [location.pathname]);
 
   const handleCLickResume = () => {
@@ -54,7 +54,7 @@ export const Navbar = ({ isDarkMode }) => {
   }, []);
 
   const navigationText = (className) => {
-    return (
+    return defaultLocation ? (
       <>
         <button
           onClick={() => handleScrollToSection("about_page")}
@@ -75,22 +75,27 @@ export const Navbar = ({ isDarkMode }) => {
           Project
         </button>
       </>
-    );
+    ) : null;
   };
 
   const handleLogoClick = (e) => {
     e.preventDefault();
-    setMobileMenuOpen(false);
 
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }, 150);
+    if (defaultLocation) {
+      setMobileMenuOpen(false);
+
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }, 150);
+    } else {
+      window.location.href = "/";
+    }
   };
 
-  return !isDefaultLocation ? null : (
+  return !validLocation ? null : (
     <header className="fixed top-0 left-0 right-0 z-10 shadow-md backdrop-blur border-b border-slate-300/20 dark:border-slate-300/20 ">
       <nav
         aria-label="Global"
@@ -104,35 +109,40 @@ export const Navbar = ({ isDarkMode }) => {
             <span className="sr-only">Your Company</span>
             <img
               alt=""
-              src={isDarkMode ? myLogoDark : myLogoLight}
+              src={isDarkMode ? myLogo.dark : myLogo.light}
               className="w-auto h-16"
             />
           </a>
         </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-          >
-            <span className="sr-only">Open main menu</span>
-            <FaBars aria-hidden="true" className="h-6 w-6" />
-          </button>
-        </div>
+
+        {defaultLocation && (
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(true)}
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            >
+              <span className="sr-only">Open main menu</span>
+              <FaBars aria-hidden="true" className="h-6 w-6" />
+            </button>
+          </div>
+        )}
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           {navigationText("text-sm font-semibold leading-6 text-gray-500")}
 
           <Popover className="relative">
             {({ open }) => (
               <>
-                <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500 transition">
-                  Contact
-                  <LuChevronDown
-                    className={`ml-1 transition-transform duration-300 ${
-                      open ? "rotate-180" : ""
-                    }`}
-                  />
-                </PopoverButton>
+                {defaultLocation && (
+                  <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500 transition">
+                    Contact
+                    <LuChevronDown
+                      className={`ml-1 transition-transform duration-300 ${
+                        open ? "rotate-180" : ""
+                      }`}
+                    />
+                  </PopoverButton>
+                )}
 
                 <PopoverPanel
                   transition={true.toString()}
@@ -169,20 +179,34 @@ export const Navbar = ({ isDarkMode }) => {
             )}
           </Popover>
         </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
-            href={myResumeLink}
-            target="_blank"
-            className={`${!isFindingJob && 'line-through'} text-sm font-semibold leading-6 text-gray-500 hover:underline-offset-2 hover:underline relative`}
-            onClick={() => handleCLickResume()}
-          >
-            My Resume
-            {(!isCLickedResume) && (
-              <span className={`${!isFindingJob && "hidden"} absolute -top-1 right-0 rounded-full bg-ae_logo_color w-2 h-2 animate-ping`}></span>
-            )}
-          </a>
-        </div>
+
+        {defaultLocation ? (
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a
+              href={myResumeLink}
+              target="_blank"
+              className={`${
+                !isFindingJob && "line-through"
+              } text-sm font-semibold leading-6 text-gray-500 hover:underline-offset-2 hover:underline relative`}
+              onClick={() => handleCLickResume()}
+            >
+              My Resume
+              {!isCLickedResume && (
+                <span
+                  className={`${
+                    !isFindingJob && "hidden"
+                  } absolute -top-1 right-0 rounded-full bg-ae_logo_color w-2 h-2 animate-ping`}
+                ></span>
+              )}
+            </a>
+          </div>
+        ) : (
+          <div className="text-sm font-semibold leading-6 text-gray-500 ">
+            About Me
+          </div>
+        )}
       </nav>
+
       <Dialog
         as="div"
         open={mobileMenuOpen}
@@ -199,7 +223,7 @@ export const Navbar = ({ isDarkMode }) => {
               <span className="sr-only">Your Company</span>
               <img
                 alt=""
-                src={isDarkMode ? myLogoDark : myLogoLight}
+                src={isDarkMode ? myLogo.dark : myLogo.light}
                 className="h-auto w-16"
               />
             </a>
@@ -223,7 +247,9 @@ export const Navbar = ({ isDarkMode }) => {
                 <a
                   href={myResumeLink}
                   target="_blank"
-                  className={`${!isFindingJob && 'line-through'} -mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-500 hover:bg-gray-100 w-9/12`}
+                  className={`${
+                    !isFindingJob && "line-through"
+                  } -mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-500 hover:bg-gray-100 w-9/12`}
                 >
                   My Resume
                 </a>
@@ -245,7 +271,7 @@ export const Navbar = ({ isDarkMode }) => {
                     target="_blank"
                     className="bg-ae_hover_modal hover:bg-white flex h-11 w-11 flex-none items-center justify-center rounded-lg"
                   >
-                    <IconComponent className="h-6 w-6 text-gray-600 group-hover:text-ae_logo_color"/>
+                    <IconComponent className="h-6 w-6 text-gray-600 group-hover:text-ae_logo_color" />
                   </a>
                 );
               })}

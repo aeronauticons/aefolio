@@ -6,7 +6,7 @@ import lightBg from "./../../assets/ProfileImg/light_bg.jpg";
 import darkBg from "./../../assets/ProfileImg/dark_bg.jpg";
 import Reveal from "../plugins/Reveal";
 import { motion } from "framer-motion";
-import { isFindingJob } from "../../constants";
+import { isFindingJob, myRole } from "../../constants";
 
 export const FrontPage = ({ isDarkMode }) => {
 
@@ -99,11 +99,11 @@ export const FrontPage = ({ isDarkMode }) => {
                 }}
               >
                 <h2 className="text-balance sm:text-6xl text-5xl font-bold tracking-tight text-gray-900 text-position mb-4 py-1 px-3 trans-none">
-                  FULL STACK <br />
+                  {myRole.firstWord} <br />
                   <span onClick={handleClick} style={{ cursor: "pointer" }}>
-                    D
+                    {myRole.firstLetterForSecondWord}
                     <Typewriter
-                      text={"EVELOPER"}
+                      text={myRole.secondWord}
                       delay={500}
                       infinite
                       isClick={typeWriterClick}

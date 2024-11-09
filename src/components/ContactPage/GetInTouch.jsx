@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import myLogoLight from "../../assets/MyLogo/aefolio_logo_light.png";
-import myLogoDark from "../../assets/MyLogo/aefolio_logo_dark.png";
 import { ControlTextField } from "../InputComponents/ControlTextField";
 import { useForm, useWatch } from "react-hook-form";
 import { Button } from "../ButtonComponents/Button";
@@ -11,7 +9,7 @@ import { emailSchema } from "../../core/validations/emailSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
-import { yearUpdate } from "../../constants";
+import { yearUpdate, myLogo } from "../../constants";
 import messageSent from "../../assets/Animations/messageSent.json";
 import { LiaGrinWinkSolid } from "react-icons/lia";
 
@@ -119,7 +117,7 @@ export const GetInTouch = ({ isDarkMode }) => {
               <div className="w-20 mb-2 h-20 overflow-hidden rounded-full mx-auto">
                 <img
                   alt="My Logo"
-                  src={isDarkMode ? myLogoDark : myLogoLight}
+                  src={isDarkMode ? myLogo.dark : myLogo.light}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -199,7 +197,7 @@ export const GetInTouch = ({ isDarkMode }) => {
         <div className="w-16 h-8 overflow-hidden rounded-full mx-auto md:mx-0">
           <img
             alt="My Logo"
-            src={isDarkMode ? myLogoDark : myLogoLight}
+            src={isDarkMode ? myLogo.dark : myLogo.light}
             className="w-full h-full object-cover"
           />
         </div>
