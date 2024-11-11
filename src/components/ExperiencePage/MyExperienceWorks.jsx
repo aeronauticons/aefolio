@@ -2,8 +2,14 @@ import React from "react";
 import { FaCheck } from "react-icons/fa";
 import Reveal from "../plugins/Reveal";
 import { myWorkExperiences } from "../../constants";
+import { ExperienceModal } from "../Modal/ExperienceModal";
 
-export const MyExperienceWorks = () => {
+export const MyExperienceWorks = ({ isDarkMode, openModal }) => {
+
+  const handleExperienceClick = (experienceData) => {
+    openModal(experienceData, ExperienceModal);
+  };
+
 
   return (
     <div className="relative mx-auto max-w-screen-2xl bg-ae_background_color sm:py-8 px-12 sm:px-24 md:px-32 xl:px-44 lg:py-5 pt-7 pb-2 md:pt-10">
@@ -21,50 +27,51 @@ export const MyExperienceWorks = () => {
             <div className="xl:flex xl:justify-between">
               <div
                 className="max-w-full max-h-fit xl:w-[70%] bg-ae_keypoints_bg_color border border-ae_quote_ring rounded-lg shadow-md hover:shadow-lg overflow-hidden 
-                relative transform transition-transform duration-300 ease-in-out hover:scale-105"
+                relative transform transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer"
+                onClick={() => handleExperienceClick(item)}
               >
-                <a href={item.link} target="_blank" rel="noopener noreferrer">
-                  <div className="relative">
-                    <img
-                      className="w-full h-48 object-cover"
-                      src={item.cover}
-                      alt="Company Cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ae_keypoints_bg_color to-transparent"></div>
-                  </div>
+                <div className="relative">
+                  <img
+                    className="w-full h-48 object-cover"
+                    src={item.cover}
+                    alt="Company Cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ae_keypoints_bg_color to-transparent"></div>
+                </div>
 
-                  <div className="p-5 md:flex md:justify-between">
-                    <div className="w-100">
-                      <Reveal>
-                        <h5 className="mb-2 text-sm sm:text-xl md:text-2xl font-bold tracking-tight text-ae_titles_text_color">
-                          {item.name}
-                        </h5>
-                      </Reveal>
+                <div className="p-5 md:flex md:justify-between">
+                  <div className="w-100">
+                    <Reveal>
+                      <h5 className="mb-2 text-sm sm:text-xl md:text-2xl font-bold tracking-tight text-ae_titles_text_color">
+                        {item.name}
+                      </h5>
+                    </Reveal>
 
-                      <Reveal>
-                        <span className="block mb-2 text-sm md:text-base font-normal leading-none text-gray-500">
-                          {item.date}
-                        </span>
-                      </Reveal>
-                    </div>
-                    <div className="w-100">
-                      <Reveal>
-                        <h5 className="mb-2 text-sm sm:text-lg md:text-xl font-light tracking-tight text-gray-500">
-                          {item.role}
-                        </h5>
-                      </Reveal>
-                    </div>
+                    <Reveal>
+                      <span className="block mb-2 text-sm md:text-base font-normal leading-none text-gray-500">
+                        {item.date}
+                      </span>
+                    </Reveal>
                   </div>
-                </a>
+                  <div className="w-100">
+                    <Reveal>
+                      <h5 className="mb-2 text-sm sm:text-lg md:text-xl font-light tracking-tight text-gray-500">
+                        {item.role}
+                      </h5>
+                    </Reveal>
+                  </div>
+                </div>
               </div>
 
               <div className="w-100 mt-6 xl:mt-0 xl:w-[25%] relative">
                 <Reveal>
-                  <img
-                    src={item.logo}
-                    alt="Logo"
-                    className="h-auto xl:w-48 w-48 md:w-48 lg:w-52 p-1 mb-3"
-                  />
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={item.logo}
+                      alt="Logo"
+                      className="h-auto xl:w-48 w-48 md:w-48 lg:w-52 p-1 mb-3 hover:scale-95 transition-transform duration-200"
+                    />
+                  </a>
                 </Reveal>
 
                 <div className="text-lg font-normal text-gray-500">

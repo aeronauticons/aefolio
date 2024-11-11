@@ -2,12 +2,12 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";
 import Reveal from "../plugins/Reveal";
-import { ProjectModalContent } from "../Modal/ProjectModalContent";
+import { ProjectModal } from "../Modal/ProjectModal";
 import { myProjects } from "../../constants";
 
 export const ProjectLists = ({ isDarkMode, openModal }) => {
   const handleProjectClick = (projectData) => {
-    openModal(projectData, ProjectModalContent);
+    openModal(projectData, ProjectModal);
   };
 
   const gridColumns =

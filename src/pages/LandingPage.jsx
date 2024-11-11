@@ -14,7 +14,7 @@ export const LandingPage = ({ isDarkMode, openModal }) => {
       <FrontPage isDarkMode={isDarkMode} />
       <QuotePage isDarkMode={isDarkMode} />
       <AboutPage />
-      <Experience />
+      <Experience isDarkMode={isDarkMode} openModal={openModal}/>
       <Projects isDarkMode={isDarkMode} openModal={openModal} />
       <GetInTouch isDarkMode={isDarkMode} />
     </div>
