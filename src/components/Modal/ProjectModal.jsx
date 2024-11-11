@@ -3,7 +3,7 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";
 
-export const ProjectModalContent = ({ data, isDarkMode }) => {
+export const ProjectModal = ({ data, isDarkMode }) => {
   
   const sanitizedHtml = DOMPurify.sanitize(data.long_desc);
 

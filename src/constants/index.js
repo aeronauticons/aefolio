@@ -22,6 +22,7 @@ import myLogoDark from "../assets/MyLogo/aefolio_logo_dark.png";
 import myLogoLight from "../assets/MyLogo/aefolio_logo_light.png";
 import NBLogo from "../assets/Work/Nexbridge/nb_logo.png";
 import NBCover from "../assets/Work/Nexbridge/nb_cover.jpg";
+import NBModalCover from "../assets/Work/Nexbridge/nb_modal_cover.jpg";
 import NBMiniLogo from "../assets/Work/Nexbridge/nb_mini_logo.png";
 import { RiCss3Fill } from "react-icons/ri";
 import QubeAppLogoLight from "../assets/Projects/QubeApp/QLogoLight.png";
@@ -54,7 +55,7 @@ import twitterLogo from "../assets/Socials/twitterX.png";
 
 const isFindingJob = true;
 const myResumeLink =
-  "https://drive.google.com/file/d/1_jJlc65KigjYqWdDjCa7XhtN3l4mNUyg/view?usp=sharing";
+  "https://drive.google.com/file/d/1OP8rw8fBuMImpBsv7oDUDuU1kuIugV7x/view?usp=sharing";
 
 const myLogo = {
   dark: myLogoDark,
@@ -228,6 +229,7 @@ const myWorkExperiences = [
     logo: NBLogo,
     miniLogo: NBMiniLogo,
     cover: NBCover,
+    modalCover: NBModalCover,
     date: "October 2022 - Present",
     role: "Software Engineer",
     link: "https://nexbridgetech.com/",
@@ -239,6 +241,33 @@ const myWorkExperiences = [
         text: "Designed and optimized relational databases to ensure data integrity.",
       },
       { id: 4, text: "Refactored and streamlined code structures." },
+    ],
+    full_details: [
+      {
+        id: 1,
+        text: `Engineered end-to-end full-stack solutions and APIs for
+mobile and web applications using the Laravel PHP
+framework, delivering scalable and efficient backend
+architectures.`,
+      },
+      {
+        id: 2,
+        text: `Developed interactive, high-performance web
+applications utilizing ReactJS with Vite, enhancing the
+frontend experience for a seamless user interface.`,
+      },
+      {
+        id: 3,
+        text: `Designed and optimized relational databases to ensure
+data integrity, improve query performance, and support
+high-traffic applications.`,
+      },
+      {
+        id: 4,
+        text: `Refactored and streamlined code structures,
+establishing scalable and maintainable codebases across
+multiple projects.`,
+      },
     ],
   },
 ];
@@ -417,42 +446,42 @@ const myGames = [
   {
     name: "Mobile Legends",
     logo: mobile_legends,
-    type: "games"
+    type: "games",
   },
   {
     name: "Valorant",
     logo: valorant,
-    type: "games"
+    type: "games",
   },
   {
     name: "Dota 2",
     logo: dota2,
-    type: "games"
+    type: "games",
   },
   {
     name: "Clash of Clans",
     logo: clash_of_clans,
-    type: "games"
+    type: "games",
   },
   {
     name: "Jogging",
     logo: jogging,
-    type: "sports"
+    type: "sports",
   },
   {
     name: "Chess",
     logo: chess,
-    type: "sports"
+    type: "sports",
   },
   {
     name: "Basketball",
     logo: basketball,
-    type: "sports"
+    type: "sports",
   },
   {
     name: "Badminton",
     logo: badminton,
-    type: "sports"
+    type: "sports",
   },
 ];
 
@@ -464,12 +493,13 @@ const mySocialsPage = [
     username: "@aeronauticssss",
     upload: {
       content_type: "text",
-      contents: "Remember to sip your coffee before diving into thinking, and coding.",
-      date: "November 10, 2024"
+      contents:
+        "Remember to sip your coffee before diving into thinking, and coding.",
+      date: "November 10, 2024",
     },
     total_posts: 2055,
-    post: 'tweets',
-    link: 'https://x.com/aeronauticssss'
+    post: "tweets",
+    link: "https://x.com/aeronauticssss",
   },
   {
     logo: igLogo,
@@ -478,13 +508,13 @@ const mySocialsPage = [
     upload: {
       content_type: "image",
       contents: [ig1, ig2, ig3],
-      date: ""
+      date: "",
     },
     total_posts: 48,
-    post: 'posts',
-    link: 'https://www.instagram.com/aeronauticons/'
+    post: "posts",
+    link: "https://www.instagram.com/aeronauticons/",
   },
-]
+];
 
 export {
   pathURL,
@@ -506,5 +536,5 @@ export {
   myLogo,
   myGames,
   gamesAndHobbiesDesc,
-  mySocialsPage
+  mySocialsPage,
 };
