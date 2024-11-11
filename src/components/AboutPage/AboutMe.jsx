@@ -21,15 +21,15 @@ export const AboutMe = () => {
           <div className="md:w-1/2 flex justify-center">
             <AutoPlay src={coder} className={"hidden md:block w-72"} />
           </div>
-          <div className="text-left text-lg leading-8 font-normal text-gray-500 md:w-2/3">
+          <div className="text-left text-lg font-normal text-gray-500 md:w-2/3">
             {aboutMe &&
               aboutMe.map((item) => (
-                <div className="mb-2 leading-relaxed" key={item.id}>
+                <div className="mb-2 leading-8 text-justify" key={item.id}>
                   <Reveal>{item.text}</Reveal>
                 </div>
               ))}
 
-            <div className="mb-2 flex justify-between">
+            <div className="mb-2 flex justify-between mt-6">
               <div className="lg:flex w-100 space-y-2 lg:space-y-0">
                 <Reveal>
                   <span className="hidden md:flex  text-ae_logo_color font-semibold text-xl items-center mr-4">

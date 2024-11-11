@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { PublicRoutes } from "./route/PublicRoutes";
 import { DefaultModal } from "./components/Modal/DefaultModal";
 import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(null);
@@ -13,23 +14,23 @@ function App() {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  
+
     const storedDarkMode = localStorage.getItem("isDarkMode");
     if (storedDarkMode) {
       setIsDarkMode(storedDarkMode === "true");
     } else {
       setIsDarkMode(mediaQuery.matches);
     }
-  
+
     const handleMediaChange = (event) => {
       if (!storedDarkMode) {
         setIsDarkMode(event.matches);
       }
     };
-  
+
     // Add the event listener for media query changes
     mediaQuery.addEventListener("change", handleMediaChange);
-  
+
     // Cleanup function to remove the event listener when the component unmounts
     return () => {
       mediaQuery.removeEventListener("change", handleMediaChange);
@@ -50,8 +51,8 @@ function App() {
 
   useEffect(() => {
     if (isDarkMode !== null) {
-      document.documentElement.classList.toggle("dark", isDarkMode);
-      document.documentElement.classList.toggle("light", !isDarkMode);
+      document.body.classList.toggle("dark", isDarkMode);
+      document.body.classList.toggle("light", !isDarkMode);
     }
   }, [isDarkMode]);
 
@@ -96,6 +97,9 @@ function App() {
         />
 
         <PublicRoutes isDarkMode={isDarkMode} openModal={openModal} />
+
+        <div className="flex-grow"></div>
+        <Footer isDarkMode={isDarkMode} />
       </div>
     </Router>
   );

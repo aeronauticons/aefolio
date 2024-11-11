@@ -18,8 +18,8 @@ import { FaMobileScreen, FaXTwitter } from "react-icons/fa6";
 import { MdAlternateEmail } from "react-icons/md";
 import { SiApachecordova, SiJavascript, SiMysql } from "react-icons/si";
 import { TbBrandVite } from "react-icons/tb";
-import myLogoDark from "../assets/MyLogo/aefolio_logo_dark.png"
-import myLogoLight from "../assets/MyLogo/aefolio_logo_light.png"
+import myLogoDark from "../assets/MyLogo/aefolio_logo_dark.png";
+import myLogoLight from "../assets/MyLogo/aefolio_logo_light.png";
 import NBLogo from "../assets/Work/Nexbridge/nb_logo.png";
 import NBCover from "../assets/Work/Nexbridge/nb_cover.jpg";
 import NBMiniLogo from "../assets/Work/Nexbridge/nb_mini_logo.png";
@@ -38,6 +38,19 @@ import phone_case_art from "../assets/MyArts/phone_case_art.jpg";
 import tree from "../assets/MyArts/tree.jpg";
 import tree1 from "../assets/MyArts/tree1.jpg";
 import tree2 from "../assets/MyArts/tree2.jpg";
+import dota2 from "../assets/MyGames/Dota_logo.png";
+import clash_of_clans from "../assets/MyGames/Clash_of_Clans_Logo.png";
+import mobile_legends from "../assets/MyGames/Mobile-legends-logo.png";
+import valorant from "../assets/MyGames/Valorant_logo_-_pink_color_version.png";
+import basketball from "../assets/MyGames/basketball-svgrepo-com.png";
+import chess from "../assets/MyGames/chess-svgrepo-com.png";
+import jogging from "../assets/MyGames/running-run-svgrepo-com.png";
+import badminton from "../assets/MyGames/badminton.png";
+import ig1 from "../assets/Socials/ig1.jpg";
+import ig2 from "../assets/Socials/ig2.jpg";
+import ig3 from "../assets/Socials/ig3.jpg";
+import igLogo from "../assets/Socials/instagram-logo.png";
+import twitterLogo from "../assets/Socials/twitterX.png";
 
 const isFindingJob = true;
 const myResumeLink =
@@ -46,7 +59,7 @@ const myResumeLink =
 const myLogo = {
   dark: myLogoDark,
   light: myLogoLight,
-}
+};
 
 const myRole = {
   firstWord: "FULL STACK",
@@ -279,9 +292,8 @@ const messageIntro = [
   {
     id: 1,
     text: `Whenever I feel grateful, lonely, or bored, I express my feelings
-          through art or by playing online games. When coding feels
-          overwhelming, or I need a break, I usually play online games to relax
-          and reset.`,
+          through creating arts or by playing online games. At times, I become extremely dedicated to my goals, while other times, I struggle with laziness. 
+          That's why I turn to my hobbies—they help me find balance and bring me a sense of ease.`,
   },
   {
     id: 2,
@@ -296,90 +308,183 @@ const myArts = [
     image: flower_tulips,
     orientation: "landscape",
     date: "August 2024",
-    description: "A vibrant, close-up view of a tulip in full bloom, showcasing its elegant petals and rich colors in my hand.",
-    medium: 'Acrylic Paint',
+    description:
+      "A vibrant, close-up view of a tulip in full bloom, showcasing its elegant petals and rich colors in my hand.",
+    medium: "Acrylic Paint",
   },
   {
     name: "Sunset Case",
     image: phone_case_art,
     orientation: "portrait",
     date: "November 2023",
-    description: "Vibrant sunset of the sun across the sea that was companioned on a phone case.",
-    medium: 'Acrylic Paint',
+    description:
+      "Vibrant sunset of the sun across the sea that was companioned on a phone case.",
+    medium: "Acrylic Paint",
   },
   {
     name: "Hope Behind the Forest",
     image: nature3,
     orientation: "landscape",
     date: "Febuary 2022",
-    description: "A hope at the end of the messy forest. Never forget that every negative event has a positive outcome.",
-    medium: 'Acrylic Paint',
+    description:
+      "A hope at the end of the messy forest. Never forget that every negative event has a positive outcome.",
+    medium: "Acrylic Paint",
   },
   {
     name: "Fire-ice Lion",
     image: lion,
     orientation: "landscape",
     date: "December 2021",
-    description: "Fierce and calm hybird lion, it showcase how calm and beautiful a lion was.",
-    medium: 'Acrylic Paint',
+    description:
+      "Fierce and calm hybird lion, it showcase how calm and beautiful a lion was.",
+    medium: "Acrylic Paint",
   },
   {
     name: "Nature Coffee Art",
     image: coffee_art1,
     orientation: "landscape",
     date: "September 2021",
-    description: "A beautiful nature inside a jail. We can find more beauty outside the surroundings than we used to. Strive outside of your box.",
-    medium: 'Coffee',
+    description:
+      "A beautiful nature inside a jail. We can find more beauty outside the surroundings than we used to. Strive outside of your box.",
+    medium: "Coffee",
   },
   {
     name: "Peaceful Evening",
     image: moon,
     orientation: "portrait",
     date: "May 2021",
-    description: "Wonders of the moon that shines in the darkness days of our lives.",
-    medium: 'Acrylic Paint',
+    description:
+      "Wonders of the moon that shines in the darkness days of our lives.",
+    medium: "Acrylic Paint",
   },
   {
     name: "Beyond the Shore",
     image: nature2,
     orientation: "landscape",
     date: "December 2020",
-    description: "Sometimes we are all curious how rocks are formed, how they are shaped, and what things we could see inside the huge rocks and terrains.",
-    medium: 'Acrylic Paint',
+    description:
+      "Sometimes we are all curious how rocks are formed, how they are shaped, and what things we could see inside the huge rocks and terrains.",
+    medium: "Acrylic Paint",
   },
   {
     name: "Twin Mountain",
     image: nature1,
     orientation: "landscape",
     date: "October 2020",
-    description: "There always a myth where the sun is always rising in the middle of the two mountains. But in my art, it wont, haha.",
-    medium: 'Acrylic Paint',
+    description:
+      "There always a myth where the sun is always rising in the middle of the two mountains. But in my art, it wont, haha.",
+    medium: "Acrylic Paint",
   },
   {
     name: "Winter Tree",
     image: tree1,
     orientation: "portrait",
     date: "May 2020",
-    description: "A tree standing bare in the cold of winter; its leaves are full of snow that is so beautiful to see. I am looking forward to seeing one of these in South Korea someday.",
-    medium: 'Acrylic Paint',
+    description:
+      "A tree standing bare in the cold of winter; its leaves are full of snow that is so beautiful to see. I am looking forward to seeing one of these in South Korea someday.",
+    medium: "Acrylic Paint",
   },
   {
     name: "Summer Tree",
     image: tree2,
     orientation: "portrait",
     date: "May 2020",
-    description: "A lush, full tree basking under the hot summer sun, its vibrant yellowish leaves providing shade and a sense of calm during the warmest season of the year.",
-    medium: 'Acrylic Paint',
+    description:
+      "A lush, full tree basking under the hot summer sun, its vibrant yellowish leaves providing shade and a sense of calm during the warmest season of the year.",
+    medium: "Acrylic Paint",
   },
   {
     name: "Tree",
     image: tree,
     orientation: "portrait",
     date: "April 2020",
-    description: "A common tree with a well-balanced structure, showcasing the simplicity and beauty of nature's life cycle throughout the seasons.",
-    medium: 'Acrylic Paint',
+    description:
+      "A common tree with a well-balanced structure, showcasing the simplicity and beauty of nature's life cycle throughout the seasons.",
+    medium: "Acrylic Paint",
   },
 ];
+
+// myGames
+const gamesAndHobbiesDesc = `
+When coding feels overwhelming, or I need a break, I usually
+play online games or watch contents to relax and reset.
+I usually play strategic gameplay, with teamwork. 
+Beyond gaming, I’m also passionate about staying active, enjoying activities 
+like running and various sports.
+`;
+
+const myGames = [
+  {
+    name: "Mobile Legends",
+    logo: mobile_legends,
+    type: "games"
+  },
+  {
+    name: "Valorant",
+    logo: valorant,
+    type: "games"
+  },
+  {
+    name: "Dota 2",
+    logo: dota2,
+    type: "games"
+  },
+  {
+    name: "Clash of Clans",
+    logo: clash_of_clans,
+    type: "games"
+  },
+  {
+    name: "Jogging",
+    logo: jogging,
+    type: "sports"
+  },
+  {
+    name: "Chess",
+    logo: chess,
+    type: "sports"
+  },
+  {
+    name: "Basketball",
+    logo: basketball,
+    type: "sports"
+  },
+  {
+    name: "Badminton",
+    logo: badminton,
+    type: "sports"
+  },
+];
+
+// mySocials
+const mySocialsPage = [
+  {
+    logo: twitterLogo,
+    name: "TwitterX",
+    username: "@aeronauticssss",
+    upload: {
+      content_type: "text",
+      contents: "Remember to sip your coffee before diving into thinking, and coding.",
+      date: "November 10, 2024"
+    },
+    total_posts: 2055,
+    post: 'tweets',
+    link: 'https://x.com/aeronauticssss'
+  },
+  {
+    logo: igLogo,
+    name: "Instagram",
+    username: "@aeronauticons",
+    upload: {
+      content_type: "image",
+      contents: [ig1, ig2, ig3],
+      date: ""
+    },
+    total_posts: 48,
+    post: 'posts',
+    link: 'https://www.instagram.com/aeronauticons/'
+  },
+]
 
 export {
   pathURL,
@@ -398,5 +503,8 @@ export {
   myRole,
   myArts,
   messageIntro,
-  myLogo
+  myLogo,
+  myGames,
+  gamesAndHobbiesDesc,
+  mySocialsPage
 };
