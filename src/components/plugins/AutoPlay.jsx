@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, memo, useState } from "react";
 import Lottie from "lottie-web";
-import Reveal from "./Reveal";
 
 export const AutoPlay = memo(({ src, className }) => {
   const container = useRef(null);
@@ -52,9 +51,5 @@ export const AutoPlay = memo(({ src, className }) => {
     };
   }, [inView, animation, src]);
 
-  return (
-    <Reveal>
-      <div ref={container} className={className}></div>
-    </Reveal>
-  );
+  return <div ref={container} className={className}></div>;
 });

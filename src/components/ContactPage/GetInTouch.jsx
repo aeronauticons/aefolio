@@ -192,20 +192,6 @@ export const GetInTouch = ({ isDarkMode }) => {
           />
         </div>
       </div>
-
-      <footer className="sm:flex w-full justify-center items-center text-center absolute bottom-2 left-1/2 transform -translate-x-1/2 text-sm space-x-2">
-        <div className="w-16 h-8 overflow-hidden rounded-full mx-auto md:mx-0">
-          <img
-            alt="My Logo"
-            src={isDarkMode ? myLogo.dark : myLogo.light}
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        <span className="text-gray-500">
-          Portfolio - Created By Aeron Filoteo @ {yearUpdate}
-        </span>
-      </footer>
     </section>
   );
 };

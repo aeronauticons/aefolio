@@ -35,7 +35,7 @@ export const Capabilities = () => {
             </Reveal>
           </div>
 
-          <div className="md:w-80 lg:w-[40%] xl:py-6 pt-6 md:pt-0 px-10 sm:px-20 md:px-0 leading-relaxed">
+          <div className="md:w-80 lg:w-[40%] xl:py-6 pt-6 md:pt-0 px-10 sm:px-20 md:px-0">
             <Reveal>
               <div className="bg-ae_background_color/60 text-ae_logo_color/70 p-2 shadow-lg w-24 h-9 text-center text-sm font-semibold rounded mb-3">
                 Best of me
@@ -50,7 +50,7 @@ export const Capabilities = () => {
             </Reveal>
 
             <Reveal>
-              <div className=" text-gray-500 text-lg font-normal leading-8 mb-4">
+              <div className=" text-gray-500 text-lg font-normal leading-8 mb-4 text-justify">
                 {techStackDetails}
               </div>
             </Reveal>

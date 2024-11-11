@@ -56,19 +56,19 @@ export const ProjectLists = ({ isDarkMode, openModal }) => {
                   const IconComponent = language.icon;
 
                   return (
-                    <Reveal key={`${language.id}-${item.id}`}>
-                      <div className="px-1 relative group">
-                        <IconComponent className="h-8 w-8 lg:h-9 lg:w-9 xl:h-9 xl:w-9 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
+                    <div
+                      className="px-1 relative group"
+                      key={`${language.id}-${item.id}`}
+                    >
+                      <Reveal>
+                        <IconComponent className=" h-8 w-8 lg:h-9 lg:w-9 xl:h-9 xl:w-9 text-ae_logo_tech_stack_color group-hover:text-ae_logo_color trans-none" />
+                      </Reveal>
 
-                        <div className="font-mono absolute z-10 invisible group-hover:visible group-hover:opacity-100 opacity-0 transition-opacity duration-300 px-3 py-2 -mt-20 text-sm font-medium text-ae_titles_text_color bg-ae_quote_bg_color rounded-lg shadow-sm">
-                          {language.name}
-                          <div
-                            className="tooltip-arrow"
-                            data-popper-arrow
-                          ></div>
-                        </div>
+                      <div className="font-mono absolute invisible group-hover:visible group-hover:opacity-100 opacity-0 transition-opacity duration-300 px-3 py-2 -mt-[75px] text-sm font-medium text-ae_titles_text_color bg-ae_quote_bg_color rounded-lg shadow-sm">
+                        {language.name}
+                        <div className="tooltip-arrow" data-popper-arrow></div>
                       </div>
-                    </Reveal>
+                    </div>
                   );
                 })}
               </div>
@@ -92,7 +92,6 @@ export const ProjectLists = ({ isDarkMode, openModal }) => {
                   </a>
                 </Reveal>
                 <Reveal>
-                  {" "}
                   <a
                     href={item.githubLink}
                     className="cursor-pointer"
@@ -105,7 +104,7 @@ export const ProjectLists = ({ isDarkMode, openModal }) => {
             </div>
 
             <div
-              className={`w-full ${cardSize} text-base font-normal leading-8 text-gray-500 mt-4`}
+              className={`w-full ${cardSize} text-base font-normal leading-8 text-gray-500 mt-4 text-justify`}
             >
               <Reveal>{item.description}</Reveal>
             </div>

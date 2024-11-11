@@ -67,7 +67,7 @@ export const MyExperienceWorks = () => {
                   />
                 </Reveal>
 
-                <div className="text-lg font-normal leading-8 text-gray-500">
+                <div className="text-lg font-normal text-gray-500">
                   <ul className="list-none p-0">
                     {item?.responsibilities.map((responsibility) => (
                       <Reveal key={`${item.id}-${responsibility.id}`}>

@@ -3,12 +3,12 @@ import { myLogo } from "../../constants";
 
 export const MyArtModal = ({ data, isDarkMode }) => {
   return (
-    <div className={`lg:flex justify-between lg:space-x-10 space-y-5 relative`}>
+    <div className={`lg:flex justify-between ${data.orientation == "landscape" ? "lg:space-x-10" : "lg:space-x-0"}  space-y-5 relative`}>
       <div className="lg:w-8/12">
         <img
           src={data.image}
           className={`${
-            data.orientation == "landscape" ? " w-[600px]" : " w-[500px]"
+            data.orientation == "landscape" ? " w-[600px]" : " w-[400px]"
           } rounded-ss-xl rounded-se-xl lg:rounded-se-none lg:rounded-es-xl object-cover`}
         />
       </div>
@@ -22,8 +22,8 @@ export const MyArtModal = ({ data, isDarkMode }) => {
 
         <div className="text-gray-500 my-5">{data.description}</div>
 
-        <div className="text-gray-500 my-5 font-light">
-          Made in <span className="text-ae_logo_color">{data.medium}</span>
+        <div className="text-gray-500 my-5 font-light text-sm lg:text-base">
+          <span>Medium:</span> <span className="text-ae_logo_color">{data.medium}</span>
         </div>
 
         <div className="absolute -bottom-1 lg:bottom-4 right-6 flex items-center">
