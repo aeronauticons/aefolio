@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { messageIntro, myArts } from "../../../constants";
 import { MyArtModal } from "../../Modal/MyArtModal";
 import Reveal from "../../plugins/Reveal";
+import { ThemeContext } from "../../../context/ThemeContext";
 
-export const MyArtsPage = ({ isDarkMode, openModal }) => {
+export const MyArtsPage = ({ openModal }) => {
+  
   const handleArtClick = (artData) => {
     openModal(artData, MyArtModal);
   };
+
+  const { isDarkMode } = useContext(ThemeContext);
 
   return (
     <div className="relative max-w-screen min-h-screen flex bg-ae_background_color justify-center items-center pt-48 lg:pt-16 xl:pt-44 px-12 md:px-20 lg:px-24 xl:px-36 2xl:px-52">

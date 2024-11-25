@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { ControlTextField } from "../InputComponents/ControlTextField";
 import { useForm, useWatch } from "react-hook-form";
 import { Button } from "../ButtonComponents/Button";
@@ -12,10 +12,12 @@ import emailjs from "@emailjs/browser";
 import { yearUpdate, myLogo } from "../../constants";
 import messageSent from "../../assets/Animations/messageSent.json";
 import { LiaGrinWinkSolid } from "react-icons/lia";
+import { ThemeContext } from "../../context/ThemeContext";
 
-export const GetInTouch = ({ isDarkMode }) => {
+export const GetInTouch = () => {
   const [isDisabled, setIsDisabled] = useState(true);
   const [emailSentGIF, setEmailSentGIF] = useState(false);
+  const { isDarkMode } = useContext(ThemeContext);
 
   const formRef = useRef();
 

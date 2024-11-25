@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MySocialComponent } from "./MySocialComponent";
 import { mySocialsPage } from "../../../constants";
 import spotifyLogo from "../../../assets/Socials/spotify.png";
+import { ThemeContext } from "../../../context/ThemeContext";
 
-export const MySocialLists = ({ isDarkMode, openModal }) => {
+export const MySocialLists = ({ openModal }) => {
+
+  const { isDarkMode } = useContext(ThemeContext);
+
   return (
     <div className="py-3 flex items-center justify-center bg-ae_background_color ">
       <div className="w-full max-w-screen ">
@@ -62,7 +66,6 @@ export const MySocialLists = ({ isDarkMode, openModal }) => {
         {/* others */}
         {mySocialsPage?.map((item) => (
           <MySocialComponent
-            isDarkMode={isDarkMode}
             openModal={openModal}
             socialData={item}
             key={item.name}

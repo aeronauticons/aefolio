@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TbExternalLink } from "react-icons/tb";
+import { ThemeContext } from "../../context/ThemeContext";
 
-export const ExperienceModal = ({ data, isDarkMode }) => {
+export const ExperienceModal = ({ data }) => {
+
+  const { isDarkMode } = useContext(ThemeContext);
+
   return (
     <>
       <img

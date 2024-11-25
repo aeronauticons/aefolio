@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { ThemeContext } from "../../context/ThemeContext";
 
-export const DarkModeButton = ({ toggleDarkMode, isDarkMode }) => {
+export const DarkModeButton = () => {
+
+  const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
+  
   return (
     <button
       onClick={toggleDarkMode}

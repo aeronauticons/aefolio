@@ -5,11 +5,11 @@ import { NotFoundPage } from "../../pages/NotFoundPage";
 import { MoreAboutMe } from "../../pages/MoreAboutMe";
 import { pathURL } from "../../constants";
 
-export const PublicRoutes = ({ isDarkMode, openModal }) => (
+export const PublicRoutes = ({ openModal }) => (
     <Routes>
-      <Route element={<Container isDarkMode={isDarkMode} />}>
-        <Route index element={<LandingPage isDarkMode={isDarkMode} openModal={openModal} />} />
-        <Route path={pathURL[1]} element={<MoreAboutMe isDarkMode={isDarkMode} openModal={openModal}/>} />
+      <Route element={<Container />}>
+        <Route index element={<LandingPage openModal={openModal} />} />
+        <Route path={pathURL[1]} element={<MoreAboutMe openModal={openModal}/>} />
         <Route path="*" element={<NotFoundPage/>} />
       </Route>
     </Routes>

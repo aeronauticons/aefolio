@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { myLogo } from "../../constants";
+import { ThemeContext } from "../../context/ThemeContext";
 
-export const MyArtModal = ({ data, isDarkMode }) => {
+export const MyArtModal = ({ data }) => {
+
+  const { isDarkMode } = useContext(ThemeContext);
+
   return (
     <div className={`lg:flex justify-between ${data.orientation == "landscape" ? "lg:space-x-10" : "lg:space-x-0"}  space-y-5 relative`}>
       <div className="lg:w-8/12">

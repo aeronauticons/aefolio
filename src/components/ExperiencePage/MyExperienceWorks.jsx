@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaCheck } from "react-icons/fa";
 import Reveal from "../plugins/Reveal";
 import { myWorkExperiences } from "../../constants";
 import { ExperienceModal } from "../Modal/ExperienceModal";
+import { ThemeContext } from "../../context/ThemeContext";
 
-export const MyExperienceWorks = ({ isDarkMode, openModal }) => {
+export const MyExperienceWorks = ({ openModal }) => {
+
+  const { isDarkMode } = useContext(ThemeContext);
 
   const handleExperienceClick = (experienceData) => {
     openModal(experienceData, ExperienceModal);

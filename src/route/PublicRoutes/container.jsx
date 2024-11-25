@@ -3,9 +3,9 @@ import { createContext, useContext } from "react";
 
 export const DarkModeContext = createContext();
 
-export const Container = ({ isDarkMode }) => {
+export const Container = () => {
   return (
-    <DarkModeContext.Provider value={isDarkMode}>
+    <DarkModeContext.Provider>
       <Outlet />
     </DarkModeContext.Provider>
   );

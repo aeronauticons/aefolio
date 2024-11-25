@@ -6,19 +6,21 @@ import {
   Popover,
   PopoverPanel,
 } from "@headlessui/react";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { LuChevronDown } from "react-icons/lu";
 import { DateTime } from "./FrontPage/DateTime";
 import { useLocation } from "react-router-dom";
 import { myContacts, myResumeLink, myLogo, isFindingJob, pathURL } from "../constants";
+import { ThemeContext } from "../context/ThemeContext";
 
-export const Navbar = ({ isDarkMode }) => {
+export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCLickedResume, setIsClickedResume] = useState(false);
   const [validLocation, setValidLocation] = useState(true);
   const [defaultLocation, setDefaultLocation] = useState(true);
+  const { isDarkMode } = useContext(ThemeContext);
 
   const location = useLocation();
 
