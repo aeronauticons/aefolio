@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import coffee_in_hand from "./../../assets/QuoteImg/coffee_in_hand.png";
 import Reveal from "../plugins/Reveal";
 import { myLogo } from "../../constants";
+import { ThemeContext } from "../../context/ThemeContext";
 
 
-export const QuotePage = ({ isDarkMode }) => {
+export const QuotePage = () => {
+
+  const { isDarkMode } = useContext(ThemeContext);
 
   return (
     <section className="relative isolate overflow-hidden px-6 py-2 md:px-24 sm:py-10 xl:px-96 lg:px-56 ">

@@ -2,7 +2,7 @@ import React from 'react'
 import { TitleComponent } from '../TitleComponent/TitleComponent'
 import { ProjectLists } from './ProjectLists';
 
-export const Projects = ({ isDarkMode, openModal }) => {
+export const Projects = ({ openModal }) => {
 
     return (
         <div
@@ -11,7 +11,7 @@ export const Projects = ({ isDarkMode, openModal }) => {
         >
           <TitleComponent title="Projects" id="project_page" />
 
-          <ProjectLists isDarkMode={isDarkMode} openModal={openModal}/>
+          <ProjectLists openModal={openModal}/>
         </div>
       );
 }

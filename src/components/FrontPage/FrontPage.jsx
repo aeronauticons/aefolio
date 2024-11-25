@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import "../FrontPage/frontPage.css";
 import { Typewriter } from "../plugins/Typewriter";
 import { ProfilePage } from "../ProfilePage/ProfilePage";
@@ -7,8 +7,11 @@ import darkBg from "./../../assets/ProfileImg/dark_bg.jpg";
 import Reveal from "../plugins/Reveal";
 import { motion } from "framer-motion";
 import { isFindingJob, myRole } from "../../constants";
+import { ThemeContext } from "../../context/ThemeContext";
 
-export const FrontPage = ({ isDarkMode }) => {
+export const FrontPage = () => {
+
+  const { isDarkMode } = useContext(ThemeContext);
 
   const [typeWriterClick, setTypeWriterClick] = useState(true);
 

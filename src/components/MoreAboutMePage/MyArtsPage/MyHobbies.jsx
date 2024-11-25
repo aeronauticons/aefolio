@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Reveal from "../../plugins/Reveal";
 import playingGames from "../../../assets/Animations/playingGames.json";
 import { AutoPlay } from "../../plugins/AutoPlay";
 import { gamesAndHobbiesDesc, myGames } from "../../../constants";
+import { ThemeContext } from "../../../context/ThemeContext";
 
-export const MyHobbiesPage = ({ isDarkMode, openModal }) => {
+export const MyHobbiesPage = ({ openModal }) => {
+
+  const { isDarkMode } = useContext(ThemeContext);
+
   return (
     <section className="relative isolate overflow-hidden px-6 py-2 md:py-5 lg:py-14">
       <div className="absolute inset-0  bg-ae_background_color" />

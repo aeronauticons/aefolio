@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Reveal from "../../plugins/Reveal";
+import { ThemeContext } from "../../../context/ThemeContext";
 
-export const MySocialComponent = ({ isDarkMode, openModal, socialData }) => {
+export const MySocialComponent = ({ openModal, socialData }) => {
+
+  const { isDarkMode } = useContext(ThemeContext);
+
   return (
     <a target="_blank" href={socialData.link}>
       <div className="bg-ae_background_color hover:bg-ae_hover_modal/50 cursor-pointer relative group">

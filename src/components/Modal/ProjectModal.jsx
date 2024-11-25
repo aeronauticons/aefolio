@@ -1,10 +1,12 @@
 import DOMPurify from "dompurify";
-import React from "react";
+import React, { useContext } from "react";
 import { FaGithub } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";
+import { ThemeContext } from "../../context/ThemeContext";
 
-export const ProjectModal = ({ data, isDarkMode }) => {
-  
+export const ProjectModal = ({ data }) => {
+
+  const { isDarkMode } = useContext(ThemeContext);
   const sanitizedHtml = DOMPurify.sanitize(data.long_desc);
 
   return (

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { yearUpdate } from "../../constants";
 import { myLogo } from "../../constants";
+import { ThemeContext } from "../../context/ThemeContext";
 
-export const Footer = ({ isDarkMode }) => {
+export const Footer = () => {
+
+  const { isDarkMode } = useContext(ThemeContext);
+
   return (
     <footer className="flex w-full justify-center items-center text-center bg-ae_background_color text-sm space-x-2">
       <div className="w-14 lg:w-16 h-8 overflow-hidden rounded-full">

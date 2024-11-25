@@ -1,7 +1,7 @@
 import React from "react";
 import { LuX } from "react-icons/lu";
 
-export const DefaultModal = ({ isOpen, isClose, content: ContentComponent, data, isDarkMode }) => {
+export const DefaultModal = ({ isOpen, isClose, content: ContentComponent, data }) => {
   if (!isOpen) return null;
 
 
@@ -17,7 +17,7 @@ export const DefaultModal = ({ isOpen, isClose, content: ContentComponent, data,
       <div className="bg-ae_contact_label rounded-xl md:max-w-xl lg:max-w-3xl w-96 lg:w-full mt-9 sm:mt-16 md:mt-10 animate-bounceOnce drop-shadow-md">
         <div className="max-h-[90vh] overflow-y-auto">
 
-          {ContentComponent && React.createElement(ContentComponent, { data, isDarkMode })}
+          {ContentComponent && React.createElement(ContentComponent, { data })}
 
         </div>
       </div>

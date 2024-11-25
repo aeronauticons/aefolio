@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGithub } from "react-icons/fa";
 import { TbExternalLink } from "react-icons/tb";
 import Reveal from "../plugins/Reveal";
 import { ProjectModal } from "../Modal/ProjectModal";
 import { myProjects } from "../../constants";
+import { ThemeContext } from "../../context/ThemeContext";
 
-export const ProjectLists = ({ isDarkMode, openModal }) => {
+export const ProjectLists = ({ openModal }) => {
   const handleProjectClick = (projectData) => {
     openModal(projectData, ProjectModal);
   };
+
+  const { isDarkMode } = useContext(ThemeContext);
 
   const gridColumns =
     myProjects.length > 1 ? "lg:grid-cols-2 grid-cols-1" : "grid-cols-1";
