@@ -53,7 +53,7 @@ import ig3 from "../assets/Socials/ig3.jpg";
 import igLogo from "../assets/Socials/instagram-logo.png";
 import twitterLogo from "../assets/Socials/twitterX.png";
 
-const isFindingJob = true;
+const isFindingJob = false;
 const myResumeLink =
   "https://drive.google.com/file/d/1OP8rw8fBuMImpBsv7oDUDuU1kuIugV7x/view?usp=sharing";
 
@@ -230,7 +230,7 @@ const myWorkExperiences = [
     miniLogo: NBMiniLogo,
     cover: NBCover,
     modalCover: NBModalCover,
-    date: "October 2022 - Present",
+    date: "October 2022 - December 2024",
     role: "Software Engineer",
     link: "https://nexbridgetech.com/",
     responsibilities: [

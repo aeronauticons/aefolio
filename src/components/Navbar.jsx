@@ -12,7 +12,13 @@ import { FaXmark } from "react-icons/fa6";
 import { LuChevronDown } from "react-icons/lu";
 import { DateTime } from "./FrontPage/DateTime";
 import { useLocation } from "react-router-dom";
-import { myContacts, myResumeLink, myLogo, isFindingJob, pathURL } from "../constants";
+import {
+  myContacts,
+  myResumeLink,
+  myLogo,
+  isFindingJob,
+  pathURL,
+} from "../constants";
 import { ThemeContext } from "../context/ThemeContext";
 
 export const Navbar = () => {
@@ -95,6 +101,19 @@ export const Navbar = () => {
     } else {
       window.location.href = "/";
     }
+  };
+
+  const handleScrollToTop = (e) => {
+    e.preventDefault();
+
+    setMobileMenuOpen(false);
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 150);
   };
 
   return !validLocation ? null : (
@@ -203,9 +222,14 @@ export const Navbar = () => {
             </a>
           </div>
         ) : (
-          <div className="text-sm font-semibold leading-6 text-gray-500 ">
-            About Me
-          </div>
+          <a
+            className="-my-7 -mx-3 p-1.5 cursor-pointer"
+            onClick={handleScrollToTop}
+          >
+            <div className="text-sm font-semibold leading-6 text-gray-500 ">
+              About Me
+            </div>
+          </a>
         )}
       </nav>
 

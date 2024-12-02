@@ -26,16 +26,17 @@ export const MySocialLists = ({ openModal }) => {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 justify-items-center lg:mx-auto lg:max-w-screen-2xl items-center h-48 md:h-52 lg:h-64 xl:h-72">
-              <div className="space-y-1 text-center lg:text-start">
+              
+              <div className="space-y-1 text-center md:text-left lg:text-start">
                 <iframe
-                  className="rounded-lg lg:hidden mx-auto"
-                  src="https://open.spotify.com/embed/album/10FLjwfpbxLmW8c25Xyc2N?utm_source=generator&theme=0"
+                  className="rounded-lg md:hidden mx-auto"
+                  src="https://open.spotify.com/embed/album/10FLjwfpbxLmW8c25Xyc2N"
                   width="54%"
                   height="152"
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   loading="lazy"
                 ></iframe>
-                <div className="text-ae_titles_text_color hidden lg:block">
+                <div className="text-ae_titles_text_color hidden md:block">
                   Spotify
                 </div>
                 <div className="mt-2 text-xs md:text-sm font-light text-gray-500">
@@ -46,7 +47,7 @@ export const MySocialLists = ({ openModal }) => {
               <div className="hidden md:block w-full hover:shadow-2xl">
                 <iframe
                   className="rounded-lg"
-                  src="https://open.spotify.com/embed/album/10FLjwfpbxLmW8c25Xyc2N?utm_source=generator&theme=0"
+                  src="https://open.spotify.com/embed/album/10FLjwfpbxLmW8c25Xyc2N"
                   width="100%"
                   height="152"
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
