@@ -71,7 +71,7 @@ export const FrontPage = () => {
 
   return (
     <div className="bg-ae_background_color min-h-screen max-w-screen flex flex-col justify-center items-center">
-      <div className="mx-auto max-w-screen-2xl md:py-32 pt-16 md:pb-10 lg:py-50 px-3 lg:px-5 xl:px-7 2xl:px-0">
+      <div className="mx-auto max-w-screen-2xl md:py-32 pt-16 md:pb-10 lg:py-50 px-3 lg:px-5 xl:px-7 2xl:px-10">
         <div className="md:flex md:justify-between md:gap-10 gap-5 grid justify-items-center mb-0 md:mb-16 xl:px-5 md:px-14">
           <div className="order-1 md:order-last md:w-1/2 w-100">
             <ProfilePage />
