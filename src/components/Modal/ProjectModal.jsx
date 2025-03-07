@@ -25,7 +25,7 @@ export const ProjectModal = ({ data }) => {
           </span>
         </div>
 
-        <div className="flex justify-between py-4 text-base md:text-lg px-2">
+        <div className="flex justify-start pt-4 text-base md:text-lg px-2">
           <div className="px-1 relative group text-ae_logo_color font-mono">
             { 
               data.languages && data.languages.map((item, index) => (
@@ -36,9 +36,10 @@ export const ProjectModal = ({ data }) => {
               ))
             }
           </div>
-          <div className="italic font-semibold text-base text-gray-500">
-            {data.dev_type}
-          </div>
+        </div>
+
+        <div className="italic font-thin text-base text-gray-500 px-2 pb-4">
+          {data.dev_type}
         </div>
 
         <div className="text-gray-500 px-2 leading-8" dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />
