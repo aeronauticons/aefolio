@@ -45,18 +45,20 @@ export const MySocialLists = ({ openModal }) => {
               </div>
 
               <div className="hidden md:block w-full hover:shadow-2xl">
-                <iframe
-                  className="rounded-lg"
-                  src="https://open.spotify.com/embed/album/10FLjwfpbxLmW8c25Xyc2N"
-                  width="100%"
+              <iframe
+                className="rounded-lg"
+                  src="https://open.spotify.com/embed/album/7rBGkbCvrkAAgO9CKGxEuo?utm_source=generator"
+                  width="90%"
                   height="152"
+                  frameBorder="0"
+                  allowfullscreen=""
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   loading="lazy"
                 ></iframe>
               </div>
               <div className="space-y-1 text-end">
                 <div className="text-ae_titles_text_color font-bold">
-                  899,082,504+
+                  83,347,306+
                 </div>
                 <div className="text-sm text-gray-500">Song Listened</div>
               </div>
